@@ -5,3 +5,6 @@ p {font-size:100%}
 h1 {text-align:center}
 h2 {text-align:center}
 h3 {text-align:center}
+h4 {text-align:center}
+p {border-style:solid; border-color:aquamarine; border-width:2px; border-radius: 2px}
+p {text-align:center}
