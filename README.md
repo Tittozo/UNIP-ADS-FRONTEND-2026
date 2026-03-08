@@ -1,6 +1,8 @@
 # 🚀 UNIP-ADS-FRONTEND-2026
 Repositório dedicado ao armazenamento de projetos, exercícios e estudos práticos desenvolvidos durante o curso de Análise e Desenvolvimento de Sistemas (ADS) na UNIP, com foco total em tecnologias Front-end.
 
+![UNIP](https://img.shields.io/badge/UNIP-ADS-blue?style=for-the-badge)
+
 # 💻 Sobre o Repositório
 Este espaço serve como meu laboratório de desenvolvimento. Aqui, aplico os conceitos de UX/UI aprendidos em prototipagem para criar interfaces que não são apenas bonitas, mas funcionais e acessíveis. O objetivo é transitar do conhecimento acadêmico para soluções reais de software.
 
