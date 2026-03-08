@@ -1,0 +1,90 @@
+/* Configurações Globais e Variáveis */
+:root {
+    --fundo: #121212;        /* Grafite escuro */
+    --neon-primario: #00ffd5; /* Aquamarine vibrante */
+    --neon-secundario: #2ecc71; /* Verde esmeralda */
+    --texto: #ffffff;
+    --borda-raio: 8px;
+}
+
+body {
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Cabeçalho e Títulos */
+h1, h2, h3, h4 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+    color: var(--neon-primario);
+    text-shadow: 0 0 10px rgba(0, 255, 213, 0.5);
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: var(--texto);
+    border: 2px solid var(--neon-secundario);
+    padding: 10px;
+    display: inline-block; /* Para a borda não ocupar a tela toda */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Parágrafos e Listas */
+p {
+    font-size: 1.1rem;
+    text-align: center;
+    border: 2px solid var(--neon-primario);
+    border-radius: var(--borda-raio);
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 800px; /* Evita que o texto fique muito largo em telas grandes */
+}
+
+ol, ul {
+    color: var(--texto);
+    max-width: 400px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+/* Imagens e Links */
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: var(--borda-raio);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.btn-instagram {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: var(--neon-primario);
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: var(--borda-raio);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--neon-primario), transparent);
+    margin: 40px 0;
+}
