@@ -1,17 +1,67 @@
-body {background-color:black}
-h1 {color:purple}
-p {color: white}
-p {font-size:100%}
-p {border-style:solid; border-color:orange; border-width:2px}
-p {text-align:justify}
-h1 {text-align:center}
-h2 {text-align:center}
-h3 {text-align:center}
-h3 {border-style:solid; border-color:blue; border-width:2px}
-h2 {color:white}
-h3 {color:white}
-ol {color:white}
-ul {color:white}
-h4 {color:green}
-h4 {text-align:center}
-h4 {font-size:100%}
+/* Configurações Gerais */
+body {
+    background-color: black;
+    font-family: Arial, sans-serif; /* Adicionei uma fonte padrão para não ficar com serifa */
+    margin: 20px;
+    line-height: 1.6; /* Melhora a leitura do texto */
+}
+
+/* Títulos */
+h1 {
+    color: purple;
+    text-align: center;
+    text-transform: uppercase; /* Deixa o título principal mais imponente */
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+h3 {
+    color: white;
+    text-align: center;
+    border: 2px solid blue; /* Usei o "Shorthand" (atalho) para as 3 propriedades de borda */
+    padding: 10px;
+}
+
+h4 {
+    color: green;
+    text-align: center;
+    font-size: 100%;
+}
+
+/* Parágrafos */
+p {
+    color: white;
+    font-size: 100%;
+    border: 2px solid orange;
+    text-align: justify;
+    padding: 15px; /* Adicionei um espaço interno para o texto não encostar na borda */
+    margin-bottom: 20px;
+}
+
+/* Listas */
+ol, ul {
+    color: white;
+    padding-left: 40px; /* Garante que os números/bolinhas apareçam no fundo preto */
+}
+
+/* Estilo para as Imagens (Dica Extra) */
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%; /* Garante que a imagem não "estoure" o tamanho da tela */
+    border-radius: 8px; /* Arredonda as pontas para ficar mais moderno */
+}
+
+/* Estilo para os Links */
+a {
+    color: #bb86fc; /* Um roxo neon para combinar com a Antunes Tech */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #03dac6; /* Muda para um ciano ao passar o mouse (efeito Gamer) */
+}
