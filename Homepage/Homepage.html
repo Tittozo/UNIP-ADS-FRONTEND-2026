@@ -1,75 +1,106 @@
-<!-- Exemplo de uma HomePage pagina inicial para um site -->
-<!-- Palavra HomePage Tem que ser link -->
-<!doctype html>
-<html lang = "pt-br">
-    <head>
-        <link rel = "stylesheet" href="homepage.css">
-        <meta charset = "UTF-8"/>
-        <meta name = "viewport" content = "width=device-width,
-        initial-scale=1.0"/>
-        <title> HomePage </title>
-        <body>
-            <h1> Bem-vindo à HomePage </h1>
-            <p>Acesse Nossa <a href="https://github.com/Tittozo">Homepage</a>
-            </p> 
-            <p> Está página está sendo desenvolvida com HTML.
-                Aqui você pode encontrar informações sobre o desenvolvimento web, dicas, tutoriais e muito mais!
-                Fique a vontade para explorar e apreder mais sobre o
-                mundo do desenvolvimento web.
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HomePage - Antunes Tech</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+
+    <header>
+        <h1>Bem-vindo à <a href="https://github.com/Tittozo">HomePage</a></h1>
+        <p>Acesse nossa <a href="https://github.com/Tittozo">Homepage no GitHub</a></p>
+    </header>
+
+    <main>
+        <section>
+            <p>
+                Esta página está sendo desenvolvida com HTML. 
+                Aqui você encontra informações sobre desenvolvimento web, dicas, tutoriais e muito mais! 
+                Fique à vontade para explorar.
             </p>
-            <hr>
-            <h2> O que é desenvolvimento web?</h2>
-            <p> O desenvolvimento web é o processo de criação de website e aplicações do dia a dia</p>
-            <a href="https://github.com/Tittozo"><img src="2cfe3a64065dfff9a47944aca1e8c42d.jpg"></a>
-            <hr>
-            <h3> Dicas para iniciantes </h3>
-            <a href="https://github.com/Tittozo"><img src="images.jpg" alt="Logo"></a>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>O que é desenvolvimento web?</h2>
+            <p>É o processo de criação de websites e aplicações que facilitam o dia a dia.</p>
+            <a href="https://github.com/Tittozo">
+                <img src="2cfe3a64065dfff9a47944aca1e8c42d.jpg" alt="Ilustração Desenvolvimento Web">
+            </a>
+        </section>
+
+        <hr>
+
+        <section>
+            <h3>Dicas para iniciantes</h3>
+            <a href="https://github.com/Tittozo">
+                <img src="images.jpg" alt="Logo GitHub">
+            </a>
+            
             <ul>
-            <hr>
-                <!-- EXEMPLO DE PARES NÃO ORDENADOS -->
                 <li>DESENVOLVIMENTO HTML</li>
                 <li>DESENVOLVIMENTO CSS</li>
                 <li>DESENVOLVIMENTO JAVASCRIPT</li>
                 <li>DESENVOLVIMENTO BOOTSTRAP</li>
             </ul>
+
             <ol>
-                <!-- EXEMPLO DE PARES ORDENADOS -->
                 <li>Projeto Simples</li>
                 <li>Projeto Avançado</li>
                 <li>Projeto Completo</li>
                 <li>Projeto Profissional</li>
             </ol>
-            <ol type="I">
-                <!-- EXEMPLO DE PARES ORDENADOS COM NUMERAÇÃO ROMANA -->
-                 <li>Teste 1</li>
-                 <li>Teste 2</li>
-                 <li>Teste 3</li>
-                 <li>Teste 4</li>
-            <a href="https://github.com/Tittozo"><img src="css_logo.png"></a>
 
+            <ol type="I">
+                <li>Teste de Estrutura</li>
+                <li>Teste de Estilização</li>
+                <li>Teste de Responsividade</li>
             </ol>
-            <p>1. ITEM 1</p>
+            <a href="https://github.com/Tittozo">
+                <img src="css_logo.png" alt="Logo CSS3">
+            </a>
+        </section>
+
+        <hr>
+
+        <section>
+            <h3>Exemplo de Hierarquia de Itens</h3>
+            <ol>
+                <li>ITEM 1</li>
+                <li>ITEM 2
+                    <ul>
+                        <li>ITEM 2.1</li>
+                        <li>ITEM 2.2</li>
+                    </ul>
+                </li>
+                <li>ITEM 3</li>
+                <li>ITEM 4
+                    <ol type="a">
+                        <li>Subitem Alfabético A</li>
+                        <li>Subitem Alfabético B</li>
+                    </ol>
+                </li>
             </ol>
-            <p>2. ITEM 2</p>
-                <ul>
-                    <li>ITEM 2.1</li>
-                    <li>ITEM 2.2</li>
-                    <li>ITEM 2.3</li>
-                </ul>
-            </ol>
-            <p>3. ITEM 3</p>
-                
-            </ol>
-            <p>4. ITEM 4</p>
-                <ol type="a">
-                    <li>ITEM 4.1</li>
-                    <li>ITEM 4.2</li>
-                    <li>ITEM 4.3</li>
-                </ol>
-            <a href="https://github.com/Tittozo"><img src="killjoy.jpg"></a>
-            <h4>JAVA SCRIPT</h4>
-            <p>Java Script é uma linguagem de programação que vai ajudar muito no desenvolvimento de um site. Ele conecta elementos do HTML e CSS e faz uma organização de interface do usuário para a melhor experiência para o usuário!</p>
-            <h4></h4>
-        </body>
-    </head>
+            <a href="https://github.com/Tittozo">
+                <img src="killjoy.jpg" alt="Mascote Tech">
+            </a>
+        </section>
+
+        <section>
+            <h4>JAVASCRIPT</h4>
+            <p>
+                O JavaScript é a alma do site. Ele conecta o HTML e o CSS, criando interatividade e 
+                melhorando a experiência do usuário!
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antunes Tech - Desenvolvido por Mateus Antunes</p>
+    </footer>
+
+</body>
 </html>
