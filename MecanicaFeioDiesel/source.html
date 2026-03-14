@@ -4,52 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Feio Diesel - Especialista em montagem de motores, manutenção, motores a diesel em Iepê, SP.">
+    <link rel="stylesheet" href="source.css">
+
     <title>Feio Diesel | Motores, Manutenção e Vendas</title>
 </head>
 <body>
-
-    <header>
-        <h1>Feio Diesel</h1>
-        <p>Especialista em Motores, Montagem, Manutenção e Vendas</p>
-        <nav>
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="logo_feio_Diesel.png" alt="Logotipo Oficial Feio Diesel" class="logo-oficial">
+        </div>
+        <nav class="menu-principal">
             <ul>
-                <li><a href="#sobre">Nossa História</a></li>
-                <li><a href="#especialidades">Nossas Especialidades</a></li>
-                <li><a href="#vendas">Setor de Vendas</a></li>
-                <li><a href="#agendamentos">Fale Conosco</a></li>
-
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#diferenciais">Por que nós?</a></li>
+                <li><a href="#especialidades">Serviços</a></li>
+                <li><a href="#vendas">Peças</a></li>
             </ul>   
         </nav>
     </header>
 
     <main>
-        <section id="sobre">
-            <h2>Tradição e Forca Bruta</h2>
-            <article>
-                <h3>Especialistas em Diesel</h3>
-            <p>A Feio Diesel, localizada em Iepê/SP, é a parceira ideal para o seu caminhão. Nosso foco é garantir que seu motor tenha a máxima performance, seja através de uma manutenção preventiva, uma montagem completa ou fornecendo as melhores peças do mercado. </p>
-            </article>
+        <section id="inicio" class="hero">
+            <div class="hero-conteudo">
+                <h2>Força Bruta e Precisão Técnica</h2>
+                <p>Especialistas em manutenção de motores a diesel, montagem completa e venda de peças em Iepê/SP. O seu bruto não pode parar na estrada.</p>
+                <a href="#agendamento" class="btn-primario">Agendar Revisão</a>
+                <a href="https://wa.me/5518999999999" target="_blank" class="btn-secundario">Falar no WhatsApp</a>
+            </div>
         </section>
 
-        <section id="especialidades">
-            <h2> O Que Fazemos na Oficina</h2>
-            <p>Trabalhamos com precisão técnica nos serviços pesados. Confira nossas principais áreas de atuação na graxa:</p>
+        <section id="diferenciais" class="diferenciais">
+            <div class="grid-diferenciais">
+                <div class="item-diferencial">
+                    <h3>🛠️ Alta Tecnologia</h3>
+                    <p>Diagnóstico avançado para motores eletrônicos e mecânicos.</p>
+                </div>
+                <div class="item-diferencial">
+                    <h3>🔍 Transparência</h3>
+                    <p>Acompanhe o serviço do seu caminhão passo a passo. Sem surpresas no orçamento.</p>
+                </div>
+                <div class="item-diferencial">
+                    <h3>⚙️ Peças Originais</h3>
+                    <p>Setor de vendas focado em componentes de alta durabilidade e performance.</p>
+                </div>
+            </div>
+        </section>
 
-            <table border="1">
-                <caption>Nossas Especialidades na Oficina</caption>
-                <thead>
-                    <tr>
-                        <th>Área de Atuação</th>
-                        <th>Detalhes do Serviço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Motores</strong></td>
-                    </tr>
-                </tbody>
-            </table>
+        <section id="especialidades" class="secao-escura">
+            <h2 class="titulo-secao">Nossas Especialidades na Graxa</h2>
+            
+            <div class="grid-servicos">
+                <article class="card">
+                    <div class="card-icone">⚙️</div>
+                    <h3>Retífica de Motores</h3>
+                    <p>Desmontagem, usinagem e montagem completa de motores a diesel com medidas de fábrica.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icone">🔧</div>
+                    <h3>Montagem e Ajuste</h3>
+                    <p>Montagem de motores parciais, regulagem de válvulas e calibração de bombas injetoras.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icone">🛢️</div>
+                    <h3>Manutenção Preventiva</h3>
+                    <p>Troca de óleo, filtros, revisão de freios a ar e suspensão de cavalos mecânicos.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icone">📦</div>
+                    <h3>Venda de Peças</h3>
+                    <p>Fornecimento ágil de óleos de alta performance, filtros e componentes de reposição.</p>
+                </article>
+            </div>
         </section>
     </main>
+
+    <a href="https://wa.me/5518999999999" class="whatsapp-float" target="_blank">
+        💬 Dúvidas?
+    </a>
 </body>
-</html>
+
+    
