@@ -1,242 +1,371 @@
-/* ==========================================================================
-   1. IMPORTAÇÃO DE FONTES EXTERNAS (GOOGLE FONTS)
-   Importando 'Montserrat' para títulos (traz um aspecto robusto e largo) 
-   e 'Roboto' para os textos (excelente legibilidade).
-   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,900&family=Roboto:wght@400;700&display=swap');
 
-/* ==========================================================================
-   2. VARIÁVEIS GERAIS (DESIGN SYSTEM BÁSICO)
-   Centralizar as cores e espaçamentos aqui facilita a manutenção. Se o cliente 
-   pedir para mudar o tom de vermelho no futuro, você altera apenas uma linha.
-   ========================================================================== */
 :root {
-    /* Paleta de Cores baseada na Logo */
-    --cor-fundo-principal: #0a0a0a;
-    --cor-fundo-secao: #141414;
-    --cor-vermelho-marca: #D32F2F;
-    --cor-vermelho-hover: #b71c1c; /* Um vermelho mais escuro para interações */
-    --cor-texto-claro: #f5f5f5;
-    --cor-texto-mutado: #a0a0a0;
-    --cor-borda: #2a2a2a;
-
-    /* Sombras e Transições padronizadas */
-    --sombra-padrao: 0 8px 30px rgba(0, 0, 0, 0.5);
-    --sombra-neon: 0 0 15px rgba(211, 47, 47, 0.4);
-    --transicao-suave: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --preto-fundo: #050505; /* Fundo extremamente escuro da logo */
+    --preto-cards: #111111;
+    --vermelho-logo: #D32F2F; /* O vermelho vivo da palavra "DIESEL" */
+    --vermelho-escuro: #9A0007;
+    --branco-puro: #FFFFFF;
+    --cinza-texto: #B0B0B0;
+    --borda-escura: #222222;
 }
 
-/* ==========================================================================
-   3. RESET CSS PROFISSIONAL
-   Zera os padrões do navegador e aplica o box-sizing correto para que as 
-   bordas e paddings não quebrem o tamanho dos elementos.
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth; /* Faz a rolagem da página ser suave ao clicar no menu */
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--cor-fundo-principal);
-    color: var(--cor-texto-claro);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased; /* Deixa as fontes mais nítidas em monitores modernos */
+    background-color: var(--preto-fundo);
+    color: var(--branco-puro);
 }
 
-/* ==========================================================================
-   4. TIPOGRAFIA GERAL
-   Títulos com a fonte Montserrat para impacto visual.
-   ========================================================================== */
-h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-}
-
-/* ==========================================================================
-   5. NAVBAR E CABEÇALHO (EFEITO GLASSMORPHISM)
-   ========================================================================== */
+/* ================== NAVBAR ================== */
 .navbar {
-    /* Fundo levemente transparente com desfoque (Blur) */
-    background-color: rgba(20, 20, 20, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    
-    padding: 15px 5%; /* Usa porcentagem para se adaptar melhor a telas largas */
-    border-bottom: 2px solid var(--cor-vermelho-marca);
-    
+    background-color: rgba(5, 5, 5, 0.95);
+    border-bottom: 2px solid var(--vermelho-logo);
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
     position: sticky;
     top: 0;
-    z-index: 1000; /* Garante que o menu fique sempre por cima de tudo */
-    box-shadow: var(--sombra-padrao);
+    z-index: 1000;
 }
 
 .logo-oficial {
-    height: 75px;
-    width: auto;
-    transition: var(--transicao-suave);
-    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.5)); /* Aplica sombra na própria imagem (PNG transparente) */
+    height: 70px;
+    filter: drop-shadow(0px 2px 5px rgba(211, 47, 47, 0.4));
+    transition: transform 0.3s;
 }
 
 .logo-oficial:hover {
-    transform: scale(1.05) rotate(-2deg); /* Dá uma leve inclinada agressiva ao passar o mouse */
+    transform: scale(1.05);
 }
 
-/* Menu de Navegação */
 .menu-principal ul {
     list-style: none;
     display: flex;
-    gap: 5px;
+    gap: 20px;
 }
 
 .menu-principal a {
-    color: var(--cor-texto-claro);
+    color: var(--branco-puro);
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: var(--transicao-suave);
-    position: relative; /* Necessário para o efeito de linha animada abaixo */
-}
-
-/* Efeito Profissional: Linha vermelha animada que cresce ao passar o mouse */
-.menu-principal a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 0%;
-    height: 2px;
-    background-color: var(--cor-vermelho-marca);
-    transition: var(--transicao-suave);
-}
-
-.menu-principal a:hover::after {
-    width: 80%; /* A linha cresce de 0 para 80% da largura do botão */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
 }
 
 .menu-principal a:hover {
-    color: var(--cor-vermelho-marca);
-    background-color: rgba(211, 47, 47, 0.05); /* Fundo vermelho quase invisível */
+    color: var(--vermelho-logo);
 }
 
-/* ==========================================================================
-   6. LAYOUT PRINCIPAL E SEÇÕES (CARDS)
-   ========================================================================== */
-main {
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 0 20px;
+/* ================== HERO SECTION (Banner Principal) ================== */
+/* Essa área cria o impacto inicial que o site de referência possui */
+.hero {
+    /* Idealmente, você colocaria uma foto de um motor escurecida aqui no background-image */
+    background: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,1)), url('foto-motor-fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 5%;
+    text-align: center;
+    border-bottom: 1px solid var(--borda-escura);
 }
 
-section {
-    background-color: var(--cor-fundo-secao);
-    margin-bottom: 50px;
-    padding: 40px;
-    border-radius: 12px;
-    border: 1px solid var(--cor-borda);
-    border-left: 6px solid var(--cor-vermelho-marca); /* Destaque lateral */
-    box-shadow: var(--sombra-padrao);
-    transition: var(--transicao-suave);
-}
-
-section:hover {
-    transform: translateY(-8px);
-    border-color: var(--cor-vermelho-marca); /* A borda inteira acende em vermelho */
-    box-shadow: var(--sombra-neon);
-}
-
-section h2 {
-    color: var(--cor-texto-claro);
-    font-size: 1.8rem;
-    font-style: italic;
-    margin-bottom: 25px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--cor-borda);
-    display: inline-block; /* Faz a borda inferior acompanhar o tamanho do texto */
-}
-
-/* ==========================================================================
-   7. TABELAS ESTILIZADAS PARA DADOS
-   ========================================================================== */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #0f0f0f;
-    border-radius: 8px;
-    overflow: hidden; /* Mantém as bordas arredondadas intactas */
-}
-
-table caption {
-    color: var(--cor-texto-mutado);
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    text-align: left;
-}
-
-th, td {
-    padding: 18px 20px;
-    text-align: left;
-    border-bottom: 1px solid var(--cor-borda);
-}
-
-th {
-    background-color: #1a1a1a;
-    color: var(--cor-vermelho-marca);
+.hero h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 3rem;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--branco-puro);
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-tbody tr {
-    transition: var(--transicao-suave);
+.hero p {
+    font-size: 1.2rem;
+    color: var(--cinza-texto);
+    max-width: 700px;
+    margin: 0 auto 40px auto;
 }
 
-tbody tr:hover {
-    background-color: #1c1c1c;
-    cursor: default;
+/* BOTÕES (Estilo Call to Action) */
+.btn-primario, .btn-secundario {
+    display: inline-block;
+    padding: 15px 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 10px;
+    transition: all 0.3s ease;
 }
 
-/* ==========================================================================
-   8. RESPONSIVIDADE (MEDIA QUERIES)
-   O segredo de um site profissional: ele deve funcionar em celulares.
-   Quando a tela for menor que 768px (tablets e smartphones), o layout muda.
-   ========================================================================== */
+.btn-primario {
+    background-color: var(--vermelho-logo);
+    color: var(--branco-puro);
+    border: 2px solid var(--vermelho-logo);
+    box-shadow: 0px 4px 15px rgba(211, 47, 47, 0.4);
+}
+
+.btn-primario:hover {
+    background-color: transparent;
+    color: var(--vermelho-logo);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: var(--branco-puro);
+    border: 2px solid var(--branco-puro);
+}
+
+.btn-secundario:hover {
+    background-color: var(--branco-puro);
+    color: var(--preto-fundo);
+}
+
+/* ================== DIFERENCIAIS (Por que nós?) ================== */
+.diferenciais {
+    padding: 60px 5%;
+    background-color: var(--preto-fundo);
+}
+
+.grid-diferenciais {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.item-diferencial {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    padding: 20px;
+    border-top: 3px solid var(--vermelho-logo);
+    background-color: var(--preto-cards);
+    border-radius: 8px;
+}
+
+.item-diferencial h3 {
+    color: var(--vermelho-logo);
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.item-diferencial p {
+    color: var(--cinza-texto);
+}
+
+/* ================== CARDS DE SERVIÇOS (O coração do site) ================== */
+.secao-escura {
+    padding: 80px 5%;
+    background-color: #0a0a0a;
+}
+
+.titulo-secao {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-style: italic;
+    color: var(--branco-puro);
+    margin-bottom: 50px;
+}
+
+/* A Mágica do CSS Grid */
+.grid-servicos {
+    display: grid;
+    /* Cria colunas responsivas: se tiver espaço, alinha lado a lado, senão, empilha */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--preto-cards);
+    padding: 40px 30px;
+    border-radius: 8px;
+    border: 1px solid var(--borda-escura);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Linha vermelha superior no card que aparece no hover */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--vermelho-logo);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+    transform: scaleX(1); /* Faz a linha vermelha crescer animada */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+    border-color: #333;
+}
+
+.card-icone {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--branco-puro);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: var(--cinza-texto);
+    font-size: 0.95rem;
+}
+
+/* ================== BOTÃO WHATSAPP FLUTUANTE ================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 9999; /* Garante que fique acima de todos os elementos */
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* ================== RESPONSIVIDADE (Celulares) ================== */
 @media screen and (max-width: 768px) {
     .navbar {
-        flex-direction: column; /* Coloca a logo em cima e o menu embaixo */
-        padding: 15px;
+        flex-direction: column;
     }
-
-    .logo-oficial {
-        height: 60px;
-        margin-bottom: 15px;
+    
+    .hero h2 {
+        font-size: 2rem;
     }
-
+    
+    .btn-primario, .btn-secundario {
+        display: block; /* Botões ocupam a largura toda no celular */
+        width: 100%;
+        margin: 10px 0;
+    }
+    
     .menu-principal ul {
-        flex-wrap: wrap; /* Permite que os botões quebrem de linha se faltar espaço */
+        margin-top: 15px;
+        flex-wrap: wrap;
         justify-content: center;
     }
+}
 
-    section {
-        padding: 25px; /* Reduz o espaço interno no celular */
+/* ==========================================================================
+   EFEITO MARCA D'ÁGUA (BACKGROUND NO CSS)
+   ========================================================================== */
+.secao-escura {
+    /* Mantém a cor de fundo, mas adiciona a imagem por cima */
+    background-color: var(--preto-fundo);
+    
+    /* Puxa a imagem diretamente pelo CSS */
+    background-image: url('logo.png'); 
+    
+    /* Centraliza a imagem no meio da seção */
+    background-position: center; 
+    
+    /* Faz a imagem não se repetir (como um azulejo) */
+    background-repeat: no-repeat; 
+    
+    /* Define o tamanho da marca d'água (ex: 60% do tamanho da tela) */
+    background-size: 60%; 
+    
+    /* O SEGREDO: Mistura a imagem com o fundo preto, deixando ela bem fraca. 
+       O 'multiply' escurece a imagem, e a opacidade em conjunto fará ela parecer uma gravação no metal. */
+    background-blend-mode: multiply;
+}
+
+/* Para garantir que o texto fique legível em cima da imagem, 
+   damos um fundo escuro um pouco mais forte para os cards */
+.grid-servicos .card {
+    background-color: rgba(17, 17, 17, 0.95); /* O 0.95 dá 5% de transparência */
+    backdrop-filter: blur(5px); /* Desfoca o fundo sutilmente atrás do card */
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBAR (ESTILO INDUSTRIAL)
+   ========================================================================== */
+/* Mira na barra de rolagem inteira do navegador */
+::-webkit-scrollbar {
+    width: 12px; /* Deixa a barra um pouco mais fina e elegante */
+}
+
+/* O "trilho" por onde a barra corre */
+::-webkit-scrollbar-track {
+    background: var(--preto-fundo); 
+    border-left: 1px solid var(--borda-escura);
+}
+
+/* A "alavanca" que o usuário clica e arrasta */
+::-webkit-scrollbar-thumb {
+    background-color: var(--vermelho-escuro); 
+    border-radius: 6px; /* Arredonda as pontas */
+    border: 3px solid var(--preto-fundo); /* Cria um espaço entre a alavanca e o trilho */
+}
+
+/* Quando o usuário passa o mouse por cima da alavanca */
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--vermelho-logo); /* Fica com o vermelho vivo da logo */
+}
+/* ==========================================================================
+   ANIMAÇÃO DE PULSO (KEYFRAMES)
+   ========================================================================== */
+/* Primeiro, criamos a "receita" da animação e damos o nome de 'pulso-motor' */
+@keyframes pulso-motor {
+    0% {
+        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); /* Sombra colada no botão */
     }
-
-    th, td {
-        padding: 12px 10px; /* Reduz o padding da tabela para caber na tela */
-        font-size: 0.9rem;
+    70% {
+        box-shadow: 0 0 0 15px rgba(211, 47, 47, 0); /* Sombra expande 15px e desaparece (0 de opacidade) */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); /* Retorna ao estado inicial */
     }
 }
+
+/* Agora aplicamos essa animação no botão principal */
+.btn-primario {
+    /* Chama a animação 'pulso-motor', faz durar 2 segundos e repetir infinitamente (infinite) */
+    animation: pulso-motor 2s infinite;
+}
+
+/* Ao passar o mouse, a animação para, para o usuário conseguir clicar com precisão */
+.btn-primario:hover {
+    animation: none;
+    transform: translateY(-2px); /* O botão sobe um pouquinho */
+}
+
