@@ -369,3 +369,305 @@ body {
     transform: translateY(-2px); /* O botão sobe um pouquinho */
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,900&family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --preto-fundo: #050505;
+    --preto-cards: #111111;
+    --vermelho-logo: #D32F2F;
+    --vermelho-escuro: #9A0007;
+    --branco-puro: #FFFFFF;
+    --cinza-texto: #B0B0B0;
+    --borda-escura: #222222;
+    --verde-whatsapp: #25D366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--preto-fundo);
+    color: var(--branco-puro);
+    line-height: 1.6;
+}
+
+/* ================== NAVBAR ================== */
+.navbar {
+    background-color: rgba(5, 5, 5, 0.95);
+    border-bottom: 2px solid var(--vermelho-logo);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo-oficial {
+    height: 70px;
+    filter: drop-shadow(0px 2px 5px rgba(211, 47, 47, 0.4));
+    transition: transform 0.3s;
+}
+
+.logo-oficial:hover { transform: scale(1.05); }
+
+.menu-principal ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-principal a {
+    color: var(--branco-puro);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    font-weight: 700;
+}
+
+.menu-principal a:hover { color: var(--vermelho-logo); }
+
+/* ================== HERO SECTION ================== */
+.hero {
+    background: linear-gradient(to bottom, rgba(5,5,5,0.7), rgba(5,5,5,1)), url('foto-motor-fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 5%;
+    text-align: center;
+}
+
+.hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    font-style: italic;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--cinza-texto);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* BOTÕES */
+.btn-primario, .btn-secundario {
+    display: inline-block;
+    padding: 16px 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primario {
+    background-color: var(--vermelho-logo);
+    color: var(--branco-puro);
+    border: 2px solid var(--vermelho-logo);
+    animation: pulso-motor 2s infinite;
+}
+
+.btn-primario:hover {
+    background-color: transparent;
+    color: var(--vermelho-logo);
+    animation: none;
+    transform: translateY(-3px);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: var(--branco-puro);
+    border: 2px solid var(--branco-puro);
+}
+
+.btn-secundario:hover {
+    background-color: var(--branco-puro);
+    color: var(--preto-fundo);
+}
+
+/* ================== DIFERENCIAIS ================== */
+.diferenciais { padding: 80px 5%; }
+
+.grid-diferenciais {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.item-diferencial {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--preto-cards);
+    border-radius: 8px;
+    border-top: 4px solid var(--vermelho-logo);
+    transition: 0.3s;
+}
+
+.item-diferencial:hover { transform: translateY(-5px); }
+
+/* ================== SEÇÃO DE PEÇAS (#vendas) ================== */
+#vendas {
+    padding: 80px 5%;
+    background-color: #0d0d0d;
+}
+
+#vendas article {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--preto-cards);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--borda-escura);
+}
+
+#vendas ul {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    list-style: none;
+}
+
+#vendas li {
+    padding-left: 25px;
+    position: relative;
+    color: var(--cinza-texto);
+}
+
+#vendas li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: var(--vermelho-logo);
+    font-weight: bold;
+}
+
+/* ================== FORMULÁRIO (#agendamento) ================== */
+#agendamento {
+    padding: 100px 5%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#agendamento h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
+}
+
+#agendamento p {
+    text-align: center;
+    color: var(--cinza-texto);
+    margin-bottom: 40px;
+}
+
+fieldset {
+    border: 1px solid var(--borda-escura);
+    padding: 30px;
+    border-radius: 8px;
+    background: var(--preto-cards);
+}
+
+legend {
+    color: var(--vermelho-logo);
+    font-weight: bold;
+    padding: 0 10px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #050505;
+    border: 1px solid var(--borda-escura);
+    color: white;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--vermelho-logo);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--vermelho-logo);
+    color: white;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button[type="submit"]:hover { background-color: var(--vermelho-escuro); }
+
+/* ================== FOOTER ================== */
+footer {
+    padding: 60px 5% 100px;
+    text-align: center;
+    border-top: 1px solid var(--borda-escura);
+    background-color: #030303;
+}
+
+footer a { color: var(--vermelho-logo); text-decoration: none; }
+
+/* ================== WHATSAPP & ANIMAÇÕES ================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--verde-whatsapp);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover { transform: scale(1.1); }
+
+@keyframes pulso-motor {
+    0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(211, 47, 47, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+}
+
+/* ================== RESPONSIVIDADE ================== */
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; gap: 15px; }
+    .menu-principal ul { gap: 10px; font-size: 0.8rem; }
+    .btn-primario, .btn-secundario { width: 100%; margin: 10px 0; }
+}
