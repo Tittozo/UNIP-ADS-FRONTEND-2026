@@ -79,6 +79,50 @@
                 </article>
             </div>
         </section>
+
+        <section id="vendas">
+            <article>
+                <p>Além da mão de obra especializada, a Feio Diesel também atua na venda de componente para garantir que você não perca tempo procurando peças</p>
+                <ul>
+                    <li>Peças de reposição para motores a diesel</li>
+                    <li>Óleos lubrificantes e fluidos de alta performance</li>
+                    <li>Filtros (ar, óleo e combustível)</li>
+                    <li>Motores parciais e completos (sob consulta)</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="agendamento">
+            <h2>Agende um Serviço ou Consulte uma peça</h2>
+            <p>Preencha os dados abaixo para falar com nossa equipe</p>
+            
+            <form action="/enviar-contato" method="POST">
+                <fieldset>
+                    <legend>Contato Feio Diesel</legend>
+
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+                    <br><br>
+
+                    <label for="telefone>">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" required placeholeder="(18)99786-0891"
+                    <br><br>
+
+                    <label for="motivo_contato">Qual o motivo do seu contato?</label>
+                    <select id="motivo_contato" name="motivo_contato">
+                        <option value="motores">Serviço em Motor</option>
+                        <option value="montagem">Orçamento de Montagem</option>
+                        <option value="manutenção">Manutenção em Geral</option>
+                        <option value="vendas">Comprar Peças / Vendas</option>
+                        <option value="outro">Outro Assuntos</option>
+                    </select>
+                    <br><br>
+
+                    <label for="mensagem">Detalhes</label><br>
+                    <textarea id="mensagem" name="mensagem" rows="4" cols="50" placeholder="Ex: Preciso de um orçamento "
+                </fieldset>
+            </form>
+        </section>
     </main>
 
     <a href="https://wa.me/5518999999999" class="whatsapp-float" target="_blank">
