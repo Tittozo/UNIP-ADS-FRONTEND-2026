@@ -671,3 +671,277 @@ footer a { color: var(--vermelho-logo); text-decoration: none; }
     .menu-principal ul { gap: 10px; font-size: 0.8rem; }
     .btn-primario, .btn-secundario { width: 100%; margin: 10px 0; }
 }
+
+/* ============================================================
+   CONFIGURAÇÕES GERAIS E VARIÁVEIS
+============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,900&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --preto-fundo: #050505;
+    --preto-cards: #111111;
+    --vermelho-logo: #D32F2F;
+    --vermelho-escuro: #9A0007;
+    --branco-puro: #FFFFFF;
+    --cinza-texto: #B0B0B0;
+    --borda-escura: #222222;
+    --verde-whatsapp: #25D366;
+    --transicao: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--preto-fundo);
+    color: var(--branco-puro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Seleção de texto personalizada */
+::selection {
+    background-color: var(--vermelho-logo);
+    color: var(--branco-puro);
+}
+
+/* Barra de Rolagem Industrial */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--preto-fundo); }
+::-webkit-scrollbar-thumb { 
+    background: var(--vermelho-escuro); 
+    border-radius: 5px;
+}
+
+/* ============================================================
+   NAVBAR (Efeito de Vidro)
+============================================================ */
+.navbar {
+    background-color: rgba(5, 5, 5, 0.9);
+    border-bottom: 2px solid var(--vermelho-logo);
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo-oficial {
+    height: 60px;
+    filter: drop-shadow(0 0 10px rgba(211, 47, 47, 0.3));
+    transition: var(--transicao);
+}
+
+.logo-oficial:hover { transform: scale(1.05) rotate(-2deg); }
+
+.menu-principal ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.menu-principal a {
+    color: var(--branco-puro);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transicao);
+    position: relative;
+}
+
+.menu-principal a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--vermelho-logo);
+    transition: var(--transicao);
+}
+
+.menu-principal a:hover::after { width: 100%; }
+.menu-principal a:hover { color: var(--vermelho-logo); }
+
+/* ============================================================
+   HERO SECTION
+============================================================ */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 1)), 
+                url('https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&q=80') center/cover;
+    text-align: center;
+    padding: 0 5%;
+}
+
+.hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 0px var(--vermelho-escuro);
+}
+
+/* ============================================================
+   MARCAS (Slider ou Grade)
+============================================================ */
+.marcas-parceiras {
+    background: #0a0a0a;
+    padding: 30px 5%;
+    border-bottom: 1px solid var(--borda-escura);
+    text-align: center;
+}
+
+.marcas-parceiras p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--vermelho-logo);
+    margin-bottom: 20px;
+}
+
+.logos-marcas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    opacity: 0.6;
+    filter: grayscale(1);
+    transition: var(--transicao);
+}
+
+.logos-marcas span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.logos-marcas:hover { opacity: 1; filter: grayscale(0); }
+
+/* ============================================================
+   SEÇÃO DETALHES (Tabela e Conteúdo)
+============================================================ */
+.secao-detalhes {
+    padding: 100px 5%;
+    background: linear-gradient(45deg, #050505, #111111);
+}
+
+.container-vendas {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.texto-vendas h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--vermelho-logo);
+}
+
+.lista-check {
+    margin-top: 30px;
+    list-style: none;
+}
+
+.lista-check li {
+    margin-bottom: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lista-check li::before {
+    content: '➔';
+    color: var(--vermelho-logo);
+}
+
+/* Tabela Profissional */
+.tabela-servicos table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--preto-cards);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.tabela-servicos th, .tabela-servicos td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--borda-escura);
+}
+
+.tabela-servicos th {
+    background-color: var(--vermelho-logo);
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.tabela-servicos tr:hover { background: #1a1a1a; }
+
+/* ============================================================
+   CARDS DE SERVIÇO (Glassmorphism)
+============================================================ */
+.secao-escura {
+    background-attachment: fixed; /* Efeito Parallax na marca d'água */
+}
+
+.card {
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--borda-escura);
+    transition: var(--transicao);
+}
+
+.card:hover {
+    border-color: var(--vermelho-logo);
+    box-shadow: 0 0 30px rgba(211, 47, 47, 0.2);
+}
+
+/* ============================================================
+   RESPONSIVIDADE AJUSTADA
+============================================================ */
+@media (max-width: 968px) {
+    .container-vendas {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar {
+        padding: 20px;
+    }
+    
+    .menu-principal {
+        display: none; /* Em um projeto real, aqui entraria um menu hamburguer */
+    }
+}
+
+/* Re-aproveitando os botões e animações anteriores */
+.btn-primario, .btn-secundario {
+    padding: 18px 40px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
