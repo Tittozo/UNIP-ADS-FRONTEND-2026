@@ -58,3 +58,14 @@ h2 {
     justify-content: center;
 }
 
+.justificar-space between {
+    justify-content: space-between;
+}
+
+.justificar-space around {
+    justify-content: space-around;
+}
+
+.justificar-space evenly {
+    justify-content: space-evenly;
+}
