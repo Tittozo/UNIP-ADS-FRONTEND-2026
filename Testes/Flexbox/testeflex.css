@@ -30,3 +30,31 @@ h2 {
     font-size: 1.2em;
 }
 
+.direcao-linha{
+    flex-direction: row;
+}
+
+.direcao-coluna{
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
+}
+
+.justificar-inicio {
+    justify-content: flex-start;
+}
+
+.justificar-fim {
+    justify-content: flex-end;
+}
+
+.justificar-centro {
+    justify-content: center;
+}
+
