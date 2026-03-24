@@ -73,3 +73,49 @@ h2 {
 .align-item .container-flex {
     height: 300px;
 }
+
+.alinhar-stretch {
+    align-items: stretch;
+}
+
+.alinhar-inicio {
+    align-items: flex-start;
+}
+
+.alinhar-fim {
+    align-items: flex-end;
+}
+
+.alinhar-centro {
+    align-items: center;
+}
+
+.alinhar-baseline {
+    align-items: baseline;
+}
+
+.alto {
+    height: 100px;
+}
+
+.baixo {
+    height: 50px;
+}
+
+.caixa {
+    background-color: white;
+    padding: 20px;
+    margin: 5px;
+    color: black;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.alinhar-conteudo-inicio {
+    align-content: flex-start;
+    height: 200px;
+}
+
+.alinhar-conteudo-inicio .caixa {
+    flex: 0 0 30%;
+}
