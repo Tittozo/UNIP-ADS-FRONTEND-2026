@@ -69,3 +69,7 @@ h2 {
 .justificar-space evenly {
     justify-content: space-evenly;
 }
+
+.align-item .container-flex {
+    height: 300px;
+}
