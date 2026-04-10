@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titan Gym | Supere seus limites</title>
+    <style>
+        /* 1. Reset e Variáveis de Cores (Tema Fitness de Alto Impacto) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Black', Impact, sans-serif; /* Fontes pesadas e fortes */
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-light: #ffffff;
+            --text-muted: #888888;
+            --neon-accent: #d4ff00; /* Verde/Amarelo Neon esportivo */
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* 2. Cabeçalho Minimalista e Agressivo */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: absolute; /* Sobrepõe o Hero */
+            width: 100%;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--neon-accent);
+        }
+
+        .nav-btn {
+            background-color: var(--neon-accent);
+            color: var(--bg-dark);
+            padding: 10px 25px;
+            text-decoration: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--neon-accent);
+        }
+
+        /* 3. Seção Principal (Hero) com Corte Diagonal */
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+            position: relative;
+            /* Efeito de corte diagonal no fundo da seção */
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        /* Elemento decorativo de fundo */
+        .hero::after {
+            content: "TITAN";
+            position: absolute;
+            right: -5%;
+            bottom: 10%;
+            font-size: 15rem;
+            color: rgba(255, 255, 255, 0.02);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--neon-accent); /* Texto vazado esportivo */
+        }
+
+        .hero p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            font-weight: normal;
+        }
+
+        /* 4. Grid de Modalidades (Cards) */
+        .modalidades {
+            padding: 5rem 5%;
+            margin-top: -3rem; /* Sobe um pouco para compensar o corte diagonal */
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title span {
+            color: var(--neon-accent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Design dos Cartões de Treino */
+        .card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-left: 5px solid transparent; /* Borda invisível por padrão */
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-left: 5px solid var(--neon-accent);
+            transform: translateX(10px); /* Move levemente para a direita */
+            background-color: #222;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            color: var(--neon-accent);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .card p {
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--text-muted);
+            font-weight: normal;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 2rem;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid #333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Titan<span>Gym</span></div>
+        <a href="#matricula" class="nav-btn">Comece Agora</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Desperte a<br><span>Sua Força</span></h1>
+            <p>Equipamentos de ponta, treinadores de elite e um ambiente focado no seu resultado. Não espere a segunda-feira.</p>
+        </div>
+    </section>
+
+    <section class="modalidades">
+        <h2 class="section-title">Nossos <span>Treinos</span></h2>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🏋️‍♂️</div>
+                <h3>Musculação</h3>
+                <p>Área de peso livre completa e máquinas biomecânicas de última geração para hipertrofia.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔥</div>
+                <h3>Cross Training</h3>
+                <p>Treinos de alta intensidade para queimar gordura, ganhar condicionamento e superar limites.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🥊</div>
+                <h3>Artes Marciais</h3>
+                <p>Aulas de Boxe e Muay Thai para coordenação, defesa pessoal e alívio do estresse.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🚴‍♀️</div>
+                <h3>Spinning</h3>
+                <p>Aulas dinâmicas com música empolgante para melhorar a capacidade cardiovascular.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Titan Gym. O limite é apenas o começo.</p>
+    </footer>
+
+</body>
+</html>
