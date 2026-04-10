@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estúdio Aurora | Projeto Criativo</title>
+    <style>
+        /* 1. Reset e Variáveis de Cores (Tema Dark Moderno) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --bg-color: #0f172a;      /* Fundo escuro */
+            --text-color: #f8fafc;    /* Texto claro */
+            --accent-color: #38bdf8;  /* Azul neon para destaque */
+            --card-bg: #1e293b;       /* Fundo dos cartões */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 2. Cabeçalho com Efeito de Vidro (Glassmorphism) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-color);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 2.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 3. Seção Principal (Hero) com Texto Degradê */
+        .hero {
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            /* Efeito de texto com gradiente */
+            background: linear-gradient(to right, #38bdf8, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            color: #94a3b8;
+        }
+
+        /* Botão com efeito Neon */
+        .btn {
+            padding: 15px 35px;
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+            transform: translateY(-3px);
+        }
+
+        /* 4. Grid de Projetos */
+        .projetos {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .projetos h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Cartões com Animação de Flutuação */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .card-img {
+            height: 220px;
+            background: linear-gradient(45deg, #334155, #1e293b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .card-content {
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .card-content h3 {
+            color: var(--text-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .card-content p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #64748b;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Estúdio<span>Aurora</span></div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Ideias que Brilham</h1>
+        <p>Transformamos conceitos complexos em experiências digitais imersivas e interfaces visuais inesquecíveis.</p>
+        <a href="#projetos" class="btn">Explorar Portfólio</a>
+    </section>
+
+    <section class="projetos" id="projetos">
+        <h2>Nossas Criações</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="card-img">🚀</div>
+                <div class="card-content">
+                    <h3>App Intergaláctico</h3>
+                    <p>Uma interface futurista focada na experiência do usuário para exploração de dados.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">💡</div>
+                <div class="card-content">
+                    <h3>Identidade Visual</h3>
+                    <p>Design de marca completo com foco em tipografia moderna e paletas vibrantes.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">🎨</div>
+                <div class="card-content">
+                    <h3>Galeria Virtual</h3>
+                    <p>Um ambiente imersivo em 3D renderizado diretamente no navegador do usuário.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Estúdio Aurora. Criado com HTML e CSS puro.</p>
+    </footer>
+
+</body>
+</html>
