@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate | Consultoria de Sistemas</title>
+    <style>
+        /* 1. Reset e Variáveis de Cores (Tema Corporativo e Limpo) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --primary-blue: #0f2c59;      /* Azul marinho profundo (Confiança) */
+            --secondary-blue: #1e56a0;    /* Azul médio (Ação) */
+            --bg-light: #f8f9fa;          /* Fundo cinza muito claro */
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --accent-gold: #c5a880;       /* Tom dourado/areia para sofisticação */
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* 2. Cabeçalho Clean e Fixo */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+            font-weight: 400;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-blue);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-left: 2rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* 3. Hero Section (Elegância e Autoridade) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6rem 5%;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            /* Padrão de grid sutil ao fundo para remeter a tecnologia/sistemas */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: #154382;
+            transform: translateY(-2px);
+        }
+
+        /* 4. Seção de Áreas de Atuação (Serviços) */
+        .servicos {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Design dos Cartões de Serviço - Minimalista e Limpo */
+        .card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            border-top: 5px solid var(--secondary-blue);
+        }
+
+        footer p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Elevate<span>Consulting</span></div>
+        <nav>
+            <a href="#sobre">Nossa Abordagem</a>
+            <a href="#servicos">Expertise</a>
+            <a href="#contato" class="btn-outline">Agendar Reunião</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Evolução guiada por dados e arquitetura sólida.</h1>
+            <p>Ajudamos empresas a estruturarem suas tecnologias, otimizando desde o front-end até a modelagem de bancos de dados relacionais complexos.</p>
+            <a href="#contato" class="btn-primary">Falar com um Especialista</a>
+        </div>
+    </section>
+
+    <section class="servicos" id="servicos">
+        <div class="section-header">
+            <h2>Nossas Áreas de Atuação</h2>
+            <p>Diagnóstico preciso e implementação técnica rigorosa para garantir que seus sistemas escalem junto com o seu negócio.</p>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Arquitetura de Software</h3>
+                <p>Estruturação de sistemas corporativos robustos, garantindo manutenibilidade e performance através de tecnologias validadas pelo mercado.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🗄️</div>
+                <h3>Engenharia de Dados</h3>
+                <p>Modelagem relacional inteligente, normalização e otimização de consultas para garantir integridade e velocidade no acesso à informação.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Integração de Sistemas</h3>
+                <p>Conectamos o front-end visual com a lógica de negócios no back-end, criando um fluxo de dados contínuo e uma experiência de usuário impecável.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Elevate Consulting. Transformação digital com propósito.</p>
+    </footer>
+
+</body>
+</html>
