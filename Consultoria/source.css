@@ -1,1 +1,201 @@
+/* 1. Reset e Variáveis de Cores (Tema Corporativo e Limpo) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
 
+:root {
+    --primary-blue: #0f2c59;      /* Azul marinho profundo (Confiança) */
+    --secondary-blue: #1e56a0;    /* Azul médio (Ação) */
+    --bg-light: #f8f9fa;          /* Fundo cinza muito claro */
+    --white: #ffffff;
+    --text-dark: #333333;
+    --text-gray: #666666;
+    --accent-gold: #c5a880;       /* Tom dourado/areia para sofisticação */
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+/* 2. Cabeçalho Clean e Fixo */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background-color: var(--white);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: 0.5px;
+}
+
+.logo span {
+    color: var(--accent-gold);
+    font-weight: 400;
+}
+
+nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-blue);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 8px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 2rem;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+/* 3. Hero Section (Elegância e Autoridade) */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 5%;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    /* Padrão de grid sutil ao fundo para remeter a tecnologia/sistemas */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #d1d5db;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+.btn-primary {
+    background-color: var(--secondary-blue);
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #154382;
+    transform: translateY(-2px);
+}
+
+/* 4. Seção de Áreas de Atuação (Serviços) */
+.servicos {
+    padding: 5rem 5%;
+    background-color: var(--white);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    color: var(--primary-blue);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Design dos Cartões de Serviço - Minimalista e Limpo */
+.card {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+    border-color: transparent;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-blue);
+    margin-bottom: 1.5rem;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    border-top: 5px solid var(--secondary-blue);
+}
+
+footer p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
