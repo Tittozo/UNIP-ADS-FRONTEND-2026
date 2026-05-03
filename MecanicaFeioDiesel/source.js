@@ -1,92 +1,213 @@
-// Aguarda o carregamento completo do DOM
 document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const siteHeader = document.querySelector('.site-header');
+    const hero = document.querySelector('.hero');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu-principal');
+    const menuBackdrop = document.querySelector('.menu-backdrop');
+    const menuLinks = Array.from(document.querySelectorAll('.menu-principal a'));
+    const sections = Array.from(document.querySelectorAll('main section[id]'));
+    const interactiveButtons = document.querySelectorAll('.btn, .btn-submit, .menu-toggle, .whatsapp-float');
+    const form = document.getElementById('contato-form');
+    const telefoneInput = document.getElementById('telefone');
+    const anoAtual = document.getElementById('ano-atual');
+    const revealItems = document.querySelectorAll('.reveal');
+    const submitButton = form ? form.querySelector('.btn-submit') : null;
+    let activeSectionId = '';
 
-    /* ============================================================
-       1. SCROLL REVEAL (Animação ao rolar a página)
-       Faz os cards e seções aparecerem suavemente ao rolar
-    ============================================================ */
-    const observerOptions = {
-        threshold: 0.1
-    };
+    if (anoAtual) {
+        anoAtual.textContent = new Date().getFullYear();
+    }
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-            }
-        });
-    }, observerOptions);
-
-    // Seleciona elementos para animar
-    const targets = document.querySelectorAll('.card, .item-diferencial, #vendas article');
-    targets.forEach(el => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(50px)";
-        el.style.transition = "all 0.6s ease-out";
-        observer.observe(el);
-    });
-
-
-    /* ============================================================
-       2. VALIDAÇÃO DO FORMULÁRIO DE AGENDAMENTO
-       Evita envios vazios e melhora a experiência do usuário
-    ============================================================ */
-    const form = document.querySelector('form');
-    
-    form.addEventListener('submit', (e) => {
-        e.preventDefault(); // Impede o envio padrão para simular a validação
-
-        const nome = document.getElementById('nome').value;
-        const telefone = document.getElementById('telefone').value;
-        const motivo = document.getElementById('motivo_contato').value;
-
-        if (nome.length < 3) {
-            alert("Por favor, digite seu nome completo.");
+    const setActiveLink = (sectionId) => {
+        if (!sectionId || activeSectionId === sectionId) {
             return;
         }
 
-        // Simulação de sucesso (Aqui você integraria com sua API ou WhatsApp)
-        const botao = form.querySelector('button');
-        const textoOriginal = botao.innerText;
-        
-        botao.innerText = "ENVIANDO...";
-        botao.style.backgroundColor = "#25D366"; // Muda para verde sucesso
+        activeSectionId = sectionId;
+        menuLinks.forEach((link) => {
+            const isActive = link.getAttribute('href') === `#${sectionId}`;
+            link.classList.toggle('is-active', isActive);
 
-        setTimeout(() => {
-            alert(`Obrigado, ${nome}! Recebemos seu interesse em "${motivo}". Entraremos em contato no número ${telefone} em breve.`);
-            form.reset();
-            botao.innerText = textoOriginal;
-            botao.style.backgroundColor = ""; 
-        }, 1500);
-    });
+            if (isActive) {
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    };
 
+    const syncScrollState = () => {
+        const scrollY = window.scrollY;
 
-    /* ============================================================
-       3. MÁSCARA DE TELEFONE AUTOMÁTICA
-       Formata o campo (18) 99999-9999 enquanto o usuário digita
-    ============================================================ */
-    const inputTelefone = document.getElementById('telefone');
-
-    inputTelefone.addEventListener('input', (e) => {
-        let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
-        e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-    });
-
-
-    /* ============================================================
-       4. NAVBAR DINÂMICA
-       Muda a opacidade do menu ao rolar para não atrapalhar a visão
-    ============================================================ */
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.padding = "10px 5%";
-            navbar.style.backgroundColor = "rgba(5, 5, 5, 0.98)";
-        } else {
-            navbar.style.padding = "15px 5%";
-            navbar.style.backgroundColor = "rgba(5, 5, 5, 0.95)";
+        if (siteHeader) {
+            siteHeader.classList.toggle('is-scrolled', scrollY > 18);
         }
+
+        if (hero) {
+            const heroOffset = Math.min(scrollY * 0.12, 36);
+            hero.style.setProperty('--hero-shift', `${heroOffset}px`);
+        }
+    };
+
+    if (menuToggle && menu) {
+        const setMenuState = (open) => {
+            menu.classList.toggle('is-open', open);
+            menuToggle.setAttribute('aria-expanded', String(open));
+            menu.setAttribute('aria-hidden', String(!open));
+            menuToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+            body.classList.toggle('menu-open', open);
+
+            if (menuBackdrop) {
+                menuBackdrop.hidden = !open;
+            }
+        };
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            setMenuState(!isOpen);
+        });
+
+        menuLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                setMenuState(false);
+            });
+        });
+
+        if (menuBackdrop) {
+            menuBackdrop.addEventListener('click', () => {
+                setMenuState(false);
+            });
+        }
+
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                setMenuState(false);
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 820) {
+                setMenuState(false);
+            }
+        });
+    }
+
+    revealItems.forEach((item, index) => {
+        item.style.setProperty('--reveal-delay', `${Math.min(index * 55, 260)}ms`);
     });
 
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.18 });
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+        revealItems.forEach((item) => item.classList.add('is-visible'));
+    }
+
+    if ('IntersectionObserver' in window && sections.length > 0) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            const visibleEntries = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+            if (visibleEntries[0]) {
+                setActiveLink(visibleEntries[0].target.id);
+            }
+        }, {
+            rootMargin: '-35% 0px -45% 0px',
+            threshold: [0.2, 0.45, 0.7]
+        });
+
+        sections.forEach((section) => sectionObserver.observe(section));
+    } else if (sections[0]) {
+        setActiveLink(sections[0].id);
+    }
+
+    interactiveButtons.forEach((button) => {
+        button.addEventListener('pointermove', (event) => {
+            const rect = button.getBoundingClientRect();
+            button.style.setProperty('--pointer-x', `${event.clientX - rect.left}px`);
+            button.style.setProperty('--pointer-y', `${event.clientY - rect.top}px`);
+        });
+    });
+
+    if (telefoneInput) {
+        telefoneInput.addEventListener('input', (event) => {
+            const numbers = event.target.value.replace(/\D/g, '').slice(0, 11);
+            const parts = numbers.match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+
+            if (!parts) {
+                event.target.value = '';
+                return;
+            }
+
+            const ddd = parts[1] ? `(${parts[1]}` : '';
+            const prefix = parts[2] ? `) ${parts[2]}` : '';
+            const suffix = parts[3] ? `-${parts[3]}` : '';
+
+            event.target.value = `${ddd}${prefix}${suffix}`.trim();
+        });
+    }
+
+    if (form) {
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const nome = form.nome.value.trim();
+            const telefone = form.telefone.value.trim();
+            const motivo = form.motivo_contato.value.trim();
+            const mensagem = form.mensagem.value.trim();
+
+            if (nome.length < 3) {
+                alert('Informe um nome mais completo para o atendimento.');
+                form.nome.focus();
+                return;
+            }
+
+            if (telefone.replace(/\D/g, '').length < 10) {
+                alert('Preencha um telefone valido para retorno da equipe.');
+                form.telefone.focus();
+                return;
+            }
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Abrindo WhatsApp...';
+            }
+
+            const texto = [
+                'Ola, equipe Feio Diesel.',
+                `Nome/empresa: ${nome}`,
+                `Telefone: ${telefone}`,
+                `Area de interesse: ${motivo}`,
+                `Detalhes: ${mensagem || 'Nao informado.'}`
+            ].join('\n');
+
+            const url = `https://wa.me/5518999999999?text=${encodeURIComponent(texto)}`;
+            window.open(url, '_blank', 'noopener');
+            form.reset();
+
+            if (submitButton) {
+                submitButton.textContent = 'Mensagem pronta no WhatsApp';
+                submitButton.classList.add('is-success');
+
+                window.setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Enviar pelo WhatsApp';
+                    submitButton.classList.remove('is-success');
+                }, 1800);
+            }
+        });
+    }
+
+    syncScrollState();
+    window.addEventListener('scroll', syncScrollState, { passive: true });
 });
