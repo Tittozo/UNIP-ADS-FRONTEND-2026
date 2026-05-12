@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuLinks = Array.from(document.querySelectorAll('.menu-principal a'));
     const sections = Array.from(document.querySelectorAll('main section[id]'));
     const interactiveButtons = document.querySelectorAll('.btn, .btn-submit, .menu-toggle, .whatsapp-float');
+    const galleryTabs = Array.from(document.querySelectorAll('.galeria-tab'));
+    const galleryCards = Array.from(document.querySelectorAll('.galeria-card'));
+    const galleryPreviewImg = document.getElementById('galeria-preview-img');
+    const galleryPreviewBrand = document.getElementById('galeria-preview-marca');
+    const galleryPreviewTitle = document.getElementById('galeria-preview-titulo');
+    const galleryPreviewDesc = document.getElementById('galeria-preview-desc');
     const form = document.getElementById('contato-form');
     const telefoneInput = document.getElementById('telefone');
     const anoAtual = document.getElementById('ano-atual');
@@ -144,6 +150,61 @@ document.addEventListener('DOMContentLoaded', () => {
             button.style.setProperty('--pointer-y', `${event.clientY - rect.top}px`);
         });
     });
+
+    const setGalleryPreview = (card) => {
+        if (!card || !galleryPreviewImg || !galleryPreviewBrand || !galleryPreviewTitle || !galleryPreviewDesc) {
+            return;
+        }
+
+        galleryCards.forEach((item) => item.classList.toggle('is-active', item === card));
+        galleryPreviewImg.src = card.dataset.image;
+        galleryPreviewImg.alt = card.dataset.alt;
+        galleryPreviewBrand.textContent = card.querySelector('span')?.textContent || card.dataset.brand;
+        galleryPreviewTitle.textContent = card.dataset.title;
+        galleryPreviewDesc.textContent = card.dataset.copy;
+    };
+
+    const filterGallery = (brand) => {
+        galleryTabs.forEach((tab) => {
+            const isActive = tab.dataset.brand === brand;
+            tab.classList.toggle('is-active', isActive);
+            tab.setAttribute('aria-selected', String(isActive));
+        });
+
+        let firstVisibleCard = null;
+
+        galleryCards.forEach((card) => {
+            const isVisible = brand === 'todos' || card.dataset.brand === brand;
+            card.classList.toggle('is-visible', isVisible);
+            card.classList.toggle('is-hidden', !isVisible);
+            card.hidden = !isVisible;
+
+            if (isVisible && !firstVisibleCard) {
+                firstVisibleCard = card;
+            }
+        });
+
+        setGalleryPreview(firstVisibleCard);
+    };
+
+    if (galleryCards.length > 0) {
+        galleryCards.forEach((card) => {
+            card.tabIndex = 0;
+            card.addEventListener('click', () => setGalleryPreview(card));
+            card.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setGalleryPreview(card);
+                }
+            });
+        });
+
+        galleryTabs.forEach((tab) => {
+            tab.addEventListener('click', () => filterGallery(tab.dataset.brand));
+        });
+
+        filterGallery('todos');
+    }
 
     if (telefoneInput) {
         telefoneInput.addEventListener('input', (event) => {
