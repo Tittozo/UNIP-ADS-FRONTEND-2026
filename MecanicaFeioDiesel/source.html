@@ -1,129 +1,231 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Feio Diesel - Especialista em montagem de motores, manutenção, motores a diesel em Iepê, SP.">
+    <meta name="description" content="Feio Diesel em Iepe/SP: mecanica diesel especializada em caminhoes Scania, Volvo e motores MWM. Diagnostico, manutencao, retifica e pecas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="source.css">
-    <title>Feio Diesel | Motores, Manutenção e Vendas</title>
+    <title>Feio Diesel | Scania, Volvo e MWM</title>
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo-container">
-            <img src="logo_feio_Diesel.png" alt="Logotipo Oficial Feio Diesel" class="logo-oficial">
+    <header class="site-header">
+        <div class="topbar">
+            <p>Oficina diesel em Iepe/SP com foco em caminhões Scania, Volvo e motores MWM.</p>
+            <a href="https://wa.me/5518999999999" target="_blank" rel="noreferrer">Atendimento pelo WhatsApp</a>
         </div>
-        <nav class="menu-principal">
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#diferenciais">Por que nós?</a></li>
-                <li><a href="#especialidades">Serviços</a></li>
-                <li><a href="#vendas">Peças</a></li>
-                <li><a href="#marcas">Marcas</a></li>
-                <li><a href="#agendamento">Contato</a></li>
-            </ul>   
-        </nav>
+
+        <div class="navbar">
+            <a href="#inicio" class="brand" aria-label="Ir para o inicio da Feio Diesel">
+                <img src="logo_feio_Diesel.png" alt="Logo da Feio Diesel" class="logo-oficial">
+            </a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="menu-principal" id="menu-principal" aria-hidden="true">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#linhas">Linhas</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#pecas">Peças</a></li>
+                    <li><a href="#processo">Processo</a></li>
+                    <li><a href="#agendamento">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
+    <div class="menu-backdrop" hidden></div>
 
     <main>
         <section id="inicio" class="hero">
+            <div class="hero-overlay"></div>
             <div class="hero-conteudo">
-                <h2>Força Bruta e Precisão Técnica</h2>
-                <p>Especialistas em manutenção de motores a diesel, montagem completa e venda de peças em Iepê/SP. O seu bruto não pode parar na estrada.</p>
-                <a href="#agendamento" class="btn-primario">Agendar Revisão</a>
-                <a href="https://wa.me/5518999999999" target="_blank" class="btn-secundario">Falar no WhatsApp</a>
+                <p class="eyebrow">Mecânica diesel pesada</p>
+                <h1>Especialistas em Scania, Volvo e motores MWM.</h1>
+                <p class="hero-texto">
+                    Diagnóstico técnico, manutenção de motor, injeção, arrefecimento, transmissão e reposição de peças
+                    para caminhões que precisam voltar para a estrada com segurança.
+                </p>
+
+                <div class="hero-acoes">
+                    <a href="#agendamento" class="btn btn-primario">Solicitar diagnóstico</a>
+                    <a href="#servicos" class="btn btn-secundario">Ver serviços</a>
+                </div>
+
+                <div class="hero-destaques">
+                    <article>
+                        <strong>Scania</strong>
+                        <span>Atendimento para linha pesada, motor, conjunto e periféricos.</span>
+                    </article>
+                    <article>
+                        <strong>Volvo</strong>
+                        <span>Diagnóstico e manutenção para caminhões de operação intensa.</span>
+                    </article>
+                    <article>
+                        <strong>MWM</strong>
+                        <span>Motores diesel com foco em revisão, retífica e alimentação.</span>
+                    </article>
+                </div>
+
+                <div class="hero-painel">
+                    <div class="painel-item">
+                        <span class="painel-label">Diagnóstico</span>
+                        <strong>falha mecânica e eletrônica</strong>
+                    </div>
+                    <div class="painel-item">
+                        <span class="painel-label">Oficina</span>
+                        <strong>motor, injeção e trem de força</strong>
+                    </div>
+                    <div class="painel-item">
+                        <span class="painel-label">Resposta</span>
+                        <strong>orçamento rápido pelo WhatsApp</strong>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="marcas" class="marcas-parceiras">
-            <p>Especialistas em Motores e Componentes:</p>
+        <section class="marcas-parceiras" aria-label="Linhas principais atendidas">
+            <p>Foco técnico da oficina</p>
             <div class="logos-marcas">
-                <span>CUMMINS</span>
+                <span>Scania</span>
+                <span>Volvo</span>
                 <span>MWM</span>
-                <span>SCANIA</span>
-                <span>MERCEDES-BENZ</span>
-                <span>VOLVO</span>
-                <span>IVECO</span>
             </div>
         </section>
 
-        <section id="diferenciais" class="diferenciais">
-            <div class="grid-diferenciais">
-                <div class="item-diferencial">
-                    <h3>🛠️ Alta Tecnologia</h3>
-                    <p>Diagnóstico avançado para motores eletrônicos e mecânicos com scanners de última geração.</p>
-                </div>
-                <div class="item-diferencial">
-                    <h3>🔍 Transparência</h3>
-                    <p>Acompanhe o serviço do seu caminhão passo a passo. Relatórios detalhados de cada peça trocada.</p>
-                </div>
-                <div class="item-diferencial">
-                    <h3>⚙️ Peças Originais</h3>
-                    <p>Setor de vendas focado em componentes de alta durabilidade para evitar paradas não planejadas.</p>
-                </div>
+        <section id="linhas" class="secao-linhas">
+            <div class="section-heading">
+                <p class="eyebrow">Linhas atendidas</p>
+                <h2>Especialização visível para quem chega com caminhão parado ou perda de rendimento.</h2>
+            </div>
+
+            <div class="linhas-grid">
+                <article class="linha-card reveal">
+                    <span class="linha-marca">Scania</span>
+                    <h3>Motor, conjunto e diagnóstico</h3>
+                    <p>Atendimento para caminhões Scania com foco em falhas de potência, vazamentos, arrefecimento, injeção e revisão preventiva.</p>
+                    <ul>
+                        <li>Motor diesel e periféricos</li>
+                        <li>Diagnóstico de falhas recorrentes</li>
+                        <li>Preventiva para operação pesada</li>
+                    </ul>
+                </article>
+
+                <article class="linha-card destaque reveal">
+                    <span class="linha-marca">Volvo</span>
+                    <h3>Manutenção para alta exigência</h3>
+                    <p>Serviço direcionado a caminhões Volvo que trabalham em estrada, carga, transporte regional e rotina de alta disponibilidade.</p>
+                    <ul>
+                        <li>Revisão de motor e sistemas auxiliares</li>
+                        <li>Correção de superaquecimento</li>
+                        <li>Triagem de consumo e desempenho</li>
+                    </ul>
+                </article>
+
+                <article class="linha-card reveal">
+                    <span class="linha-marca">MWM</span>
+                    <h3>Motores diesel com critério</h3>
+                    <p>Manutenção e retífica para motores MWM, com atenção a alimentação, vedação, lubrificação e montagem técnica.</p>
+                    <ul>
+                        <li>Retífica e montagem</li>
+                        <li>Bicos, bomba e alimentação</li>
+                        <li>Peças e kits de reposição</li>
+                    </ul>
+                </article>
             </div>
         </section>
 
-        <section id="especialidades" class="secao-escura">
-            <h2 class="titulo-secao">Nossas Especialidades na Graxa</h2>
+        <section id="servicos" class="secao-servicos">
+            <div class="section-heading">
+                <p class="eyebrow">Serviços principais</p>
+                <h2>Da primeira falha ao caminhão pronto para rodar.</h2>
+            </div>
+
             <div class="grid-servicos">
-                <article class="card">
-                    <div class="card-icone">⚙️</div>
-                    <h3>Retífica de Motores</h3>
-                    <p>Desmontagem, usinagem e montagem completa de motores a diesel com medidas rigorosas de fábrica.</p>
+                <article class="card reveal">
+                    <span class="card-numero">01</span>
+                    <h3>Diagnóstico diesel</h3>
+                    <p>Leitura técnica do problema antes da troca de peças, cruzando sintomas, histórico e inspeção do conjunto.</p>
                 </article>
 
-                <article class="card">
-                    <div class="card-icone">🔧</div>
-                    <h3>Sistemas de Injeção</h3>
-                    <p>Calibração de bicos injetores e bombas de alta pressão para garantir o menor consumo de combustível.</p>
+                <article class="card reveal">
+                    <span class="card-numero">02</span>
+                    <h3>Motor e retífica</h3>
+                    <p>Desmontagem, medição, usinagem, montagem e conferência para motores Scania, Volvo e MWM.</p>
                 </article>
 
-                <article class="card">
-                    <div class="card-icone">🛢️</div>
-                    <h3>Câmbio e Diferencial</h3>
-                    <p>Manutenção preventiva e corretiva em sistemas de transmissão de caminhões e máquinas pesadas.</p>
+                <article class="card reveal">
+                    <span class="card-numero">03</span>
+                    <h3>Injeção e alimentação</h3>
+                    <p>Correção de falhas em bicos, bombas, sensores e sistema de alimentação que afetam consumo e força.</p>
                 </article>
 
-                <article class="card">
-                    <div class="card-icone">📦</div>
-                    <h3>Venda de Peças</h3>
-                    <p>Estoque ágil de kits de motor, turbinas, filtros e óleos lubrificantes de primeira linha.</p>
+                <article class="card reveal">
+                    <span class="card-numero">04</span>
+                    <h3>Arrefecimento e lubrificação</h3>
+                    <p>Investigação de aquecimento, pressão, vazamentos, bomba d'água, bomba de óleo e componentes críticos.</p>
+                </article>
+
+                <article class="card reveal">
+                    <span class="card-numero">05</span>
+                    <h3>Transmissão e diferencial</h3>
+                    <p>Revisão do trem de força para reduzir perda de rendimento, ruídos, folgas e paradas inesperadas.</p>
+                </article>
+
+                <article class="card reveal">
+                    <span class="card-numero">06</span>
+                    <h3>Preventiva de frota</h3>
+                    <p>Plano de revisão para transportadores e autônomos que precisam previsibilidade, controle e menos parada.</p>
                 </article>
             </div>
         </section>
 
-        <section id="vendas" class="secao-detalhes">
+        <section id="pecas" class="secao-pecas">
             <div class="container-vendas">
-                <div class="texto-vendas">
-                    <h2>Venda de Peças e Peças de Reposição</h2>
-                    <p>Na Feio Diesel você encontra tudo para o seu motor. Não perdemos tempo: temos o que você precisa a pronta entrega.</p>
+                <div class="texto-vendas reveal">
+                    <p class="eyebrow">Peças e reposição</p>
+                    <h2>Peça correta, aplicação certa e menos tempo de caminhão parado.</h2>
+                    <p>
+                        A Feio Diesel orienta o orçamento de peças conforme aplicação, marca, modelo, sintoma e serviço necessário.
+                        O objetivo é reduzir compra errada e acelerar a manutenção.
+                    </p>
+
                     <ul class="lista-check">
-                        <li>Kits de Bronzinas e Pistões</li>
-                        <li>Jogos de Juntas Completos</li>
-                        <li>Bombas d'água e de Óleo</li>
-                        <li>Unidades Injetoras e Sensores</li>
+                        <li>Kits de motor, pistões, bronzinas e juntas</li>
+                        <li>Bombas d'água, bomba de óleo e sensores</li>
+                        <li>Filtros, lubrificantes e itens de revisão</li>
+                        <li>Componentes de injeção e alimentação</li>
                     </ul>
                 </div>
-                <div class="tabela-servicos">
+
+                <div class="tabela-servicos reveal">
                     <table>
+                        <caption>Como ajudamos no orçamento</caption>
                         <thead>
                             <tr>
-                                <th>Manutenção</th>
-                                <th>Foco Técnico</th>
+                                <th>Etapa</th>
+                                <th>O que a oficina avalia</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Preventiva</td>
-                                <td>Troca de óleos, filtros e revisão de 50 itens.</td>
+                                <td>Aplicação</td>
+                                <td>Marca, motor, uso do caminhão e histórico da falha.</td>
                             </tr>
                             <tr>
-                                <td>Corretiva</td>
-                                <td>Reparos de emergência e socorro mecânico.</td>
+                                <td>Necessidade</td>
+                                <td>Se o caso pede revisão, reparo, troca pontual ou análise completa.</td>
                             </tr>
                             <tr>
-                                <td>Eletrônica</td>
-                                <td>Reprogramação de ECU e diagnóstico de falhas.</td>
+                                <td>Peça</td>
+                                <td>Compatibilidade, qualidade e urgência para voltar ao trabalho.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -131,48 +233,93 @@
             </div>
         </section>
 
-        <section id="agendamento">
-            <h2>Agende um Serviço ou Consulte uma Peça</h2>
-            <p>Preencha os dados abaixo e nossa equipe técnica retornará em minutos.</p>
-            
-            <form action="/enviar-contato" method="POST">
-                <fieldset>
-                    <legend>Contato Direto Feio Diesel</legend>
+        <section id="processo" class="secao-processo">
+            <div class="section-heading">
+                <p class="eyebrow">Processo de atendimento</p>
+                <h2>Organização para resolver com menos ruído e mais precisão.</h2>
+            </div>
 
-                    <label for="nome">Nome Completo / Empresa</label>
-                    <input type="text" id="nome" name="nome" required placeholder="Digite seu nome ou nome da transportadora">
+            <div class="processo-grid">
+                <article class="processo-card reveal">
+                    <span>01</span>
+                    <h3>Triagem</h3>
+                    <p>Você informa marca, modelo, sintoma e urgência. A equipe entende o cenário antes de orientar.</p>
+                </article>
+                <article class="processo-card reveal">
+                    <span>02</span>
+                    <h3>Diagnóstico</h3>
+                    <p>A oficina avalia causa provável, conjunto afetado e risco de continuar rodando.</p>
+                </article>
+                <article class="processo-card reveal">
+                    <span>03</span>
+                    <h3>Execução</h3>
+                    <p>O serviço segue uma linha clara: desmontar, conferir, corrigir, montar e testar.</p>
+                </article>
+                <article class="processo-card reveal">
+                    <span>04</span>
+                    <h3>Entrega</h3>
+                    <p>Você recebe orientação sobre o que foi feito e como evitar reincidência da falha.</p>
+                </article>
+            </div>
+        </section>
 
-                    <label for="telefone">Telefone (WhatsApp)</label>
-                    <input type="tel" id="telefone" name="telefone" required placeholder="(18) 99999-9999">
+        <section id="agendamento" class="contato">
+            <div class="section-heading">
+                <p class="eyebrow">Contato técnico</p>
+                <h2>Envie os dados do caminhão e fale direto com a Feio Diesel.</h2>
+            </div>
 
-                    <label for="motivo_contato">Área de Interesse:</label>
-                    <select id="motivo_contato" name="motivo_contato">
-                        <option value="motores">Mecânica de Motor</option>
-                        <option value="vendas">Compra de Peças / Orçamento</option>
-                        <option value="manutencao">Revisão Preventiva</option>
-                        <option value="socorro">Socorro / Emergência</option>
-                    </select>
+            <div class="contato-grid">
+                <div class="contato-card reveal">
+                    <h3>Para agilizar o atendimento</h3>
+                    <p>Informe se o caminhão é Scania, Volvo ou MWM, descreva o sintoma e diga se ele está rodando ou parado.</p>
 
-                    <label for="mensagem">Conte-nos sobre o problema ou a peça que procura:</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Ex: Preciso de um kit de motor Scania 113 ou revisão de bicos..."></textarea>
+                    <div class="contato-info">
+                        <p><strong>Cidade:</strong> Iepê/SP</p>
+                        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/feiodiesel_iepe/" target="_blank" rel="noreferrer">@feiodiesel_iepe</a></p>
+                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5518999999999" target="_blank" rel="noreferrer">(18) 99999-9999</a></p>
+                    </div>
+                </div>
 
-                    <button type="submit">Enviar para a Oficina</button>
-                </fieldset>
-            </form>
+                <form class="contato-form reveal" id="contato-form">
+                    <fieldset>
+                        <legend>Solicitar atendimento</legend>
+
+                        <label for="nome">Nome ou empresa</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome ou empresa">
+
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(18) 99999-9999" inputmode="tel">
+
+                        <label for="motivo_contato">Linha ou necessidade</label>
+                        <select id="motivo_contato" name="motivo_contato" required>
+                            <option value="Caminhao Scania">Caminhão Scania</option>
+                            <option value="Caminhao Volvo">Caminhão Volvo</option>
+                            <option value="Motor MWM">Motor MWM</option>
+                            <option value="Pecas e orcamento">Peças e orçamento</option>
+                            <option value="Diagnostico diesel">Diagnóstico diesel</option>
+                        </select>
+
+                        <label for="mensagem">Descreva o problema</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Ex.: Scania com perda de força, Volvo aquecendo, motor MWM com falha na partida..."></textarea>
+
+                        <button type="submit" class="btn-submit">Enviar pelo WhatsApp</button>
+                    </fieldset>
+                </form>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <address>
-            <p><strong>Feio Diesel - Iepê / SP</strong></p>
-            <p>Siga no Instagram: <a href="https://www.instagram.com/feiodiesel_iepe/" target="_blank">@feiodiesel</a></p>
-            <p>Rua Principal da Graxa, 123 - Centro</p>
-        </address>
-        <p><small>&copy; 2026 Feio Diesel. Força e Tradição no Diesel.</small></p>
+    <footer class="site-footer">
+        <div>
+            <p><strong>Feio Diesel</strong></p>
+            <p>Mecânica diesel para Scania, Volvo e MWM em Iepê/SP.</p>
+        </div>
+        <p><small>&copy; <span id="ano-atual"></span> Feio Diesel. Todos os direitos reservados.</small></p>
     </footer>
 
-    <a href="https://wa.me/5518999999999" class="whatsapp-float" target="_blank">
-        💬 Chamar no Plantão
+    <a href="https://wa.me/5518999999999" class="whatsapp-float" target="_blank" rel="noreferrer" aria-label="Abrir conversa no WhatsApp">
+        WhatsApp
     </a>
 
     <script src="source.js"></script>
