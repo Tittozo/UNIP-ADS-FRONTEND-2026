@@ -1,947 +1,1192 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,900&family=Roboto:wght@400;700&display=swap');
-
 :root {
-    --preto-fundo: #050505; /* Fundo extremamente escuro da logo */
-    --preto-cards: #111111;
-    --vermelho-logo: #D32F2F; /* O vermelho vivo da palavra "DIESEL" */
-    --vermelho-escuro: #9A0007;
-    --branco-puro: #FFFFFF;
-    --cinza-texto: #B0B0B0;
-    --borda-escura: #222222;
+    --bg: #070707;
+    --bg-strong: #030303;
+    --panel: rgba(17, 17, 17, 0.94);
+    --panel-strong: #171717;
+    --text: #f6f2ea;
+    --muted: #bbb4a8;
+    --line: rgba(255, 255, 255, 0.09);
+    --brand: #d13528;
+    --brand-dark: #871b13;
+    --brand-soft: rgba(209, 53, 40, 0.15);
+    --amber: #f2a94f;
+    --success: #25d366;
+    --shadow: 0 22px 52px rgba(0, 0, 0, 0.42);
+    --radius: 8px;
+    --container: min(1180px, calc(100% - 32px));
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--preto-fundo);
-    color: var(--branco-puro);
-}
-
-/* ================== NAVBAR ================== */
-.navbar {
-    background-color: rgba(5, 5, 5, 0.95);
-    border-bottom: 2px solid var(--vermelho-logo);
-    padding: 15px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo-oficial {
-    height: 70px;
-    filter: drop-shadow(0px 2px 5px rgba(211, 47, 47, 0.4));
-    transition: transform 0.3s;
-}
-
-.logo-oficial:hover {
-    transform: scale(1.05);
-}
-
-.menu-principal ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.menu-principal a {
-    color: var(--branco-puro);
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    transition: color 0.3s;
-}
-
-.menu-principal a:hover {
-    color: var(--vermelho-logo);
-}
-
-/* ================== HERO SECTION (Banner Principal) ================== */
-/* Essa área cria o impacto inicial que o site de referência possui */
-.hero {
-    /* Idealmente, você colocaria uma foto de um motor escurecida aqui no background-image */
-    background: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,1)), url('foto-motor-fundo.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 100px 5%;
-    text-align: center;
-    border-bottom: 1px solid var(--borda-escura);
-}
-
-.hero h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
-    font-weight: 900;
-    font-style: italic;
-    color: var(--branco-puro);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--cinza-texto);
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-}
-
-/* BOTÕES (Estilo Call to Action) */
-.btn-primario, .btn-secundario {
-    display: inline-block;
-    padding: 15px 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-    margin: 10px;
-    transition: all 0.3s ease;
-}
-
-.btn-primario {
-    background-color: var(--vermelho-logo);
-    color: var(--branco-puro);
-    border: 2px solid var(--vermelho-logo);
-    box-shadow: 0px 4px 15px rgba(211, 47, 47, 0.4);
-}
-
-.btn-primario:hover {
-    background-color: transparent;
-    color: var(--vermelho-logo);
-}
-
-.btn-secundario {
-    background-color: transparent;
-    color: var(--branco-puro);
-    border: 2px solid var(--branco-puro);
-}
-
-.btn-secundario:hover {
-    background-color: var(--branco-puro);
-    color: var(--preto-fundo);
-}
-
-/* ================== DIFERENCIAIS (Por que nós?) ================== */
-.diferenciais {
-    padding: 60px 5%;
-    background-color: var(--preto-fundo);
-}
-
-.grid-diferenciais {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.item-diferencial {
-    flex: 1;
-    min-width: 250px;
-    text-align: center;
-    padding: 20px;
-    border-top: 3px solid var(--vermelho-logo);
-    background-color: var(--preto-cards);
-    border-radius: 8px;
-}
-
-.item-diferencial h3 {
-    color: var(--vermelho-logo);
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.item-diferencial p {
-    color: var(--cinza-texto);
-}
-
-/* ================== CARDS DE SERVIÇOS (O coração do site) ================== */
-.secao-escura {
-    padding: 80px 5%;
-    background-color: #0a0a0a;
-}
-
-.titulo-secao {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.2rem;
-    font-style: italic;
-    color: var(--branco-puro);
-    margin-bottom: 50px;
-}
-
-/* A Mágica do CSS Grid */
-.grid-servicos {
-    display: grid;
-    /* Cria colunas responsivas: se tiver espaço, alinha lado a lado, senão, empilha */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.card {
-    background-color: var(--preto-cards);
-    padding: 40px 30px;
-    border-radius: 8px;
-    border: 1px solid var(--borda-escura);
-    text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Linha vermelha superior no card que aparece no hover */
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: var(--vermelho-logo);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.card:hover::before {
-    transform: scaleX(1); /* Faz a linha vermelha crescer animada */
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
-    border-color: #333;
-}
-
-.card-icone {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.card h3 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--branco-puro);
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.card p {
-    color: var(--cinza-texto);
-    font-size: 0.95rem;
-}
-
-/* ================== BOTÃO WHATSAPP FLUTUANTE ================== */
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25D366; /* Cor oficial do WhatsApp */
-    color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
-    z-index: 9999; /* Garante que fique acima de todos os elementos */
-    transition: transform 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-
-/* ================== RESPONSIVIDADE (Celulares) ================== */
-@media screen and (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
-    
-    .hero h2 {
-        font-size: 2rem;
-    }
-    
-    .btn-primario, .btn-secundario {
-        display: block; /* Botões ocupam a largura toda no celular */
-        width: 100%;
-        margin: 10px 0;
-    }
-    
-    .menu-principal ul {
-        margin-top: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-/* ==========================================================================
-   EFEITO MARCA D'ÁGUA (BACKGROUND NO CSS)
-   ========================================================================== */
-.secao-escura {
-    /* Mantém a cor de fundo, mas adiciona a imagem por cima */
-    background-color: var(--preto-fundo);
-    
-    /* Puxa a imagem diretamente pelo CSS */
-    background-image: url('logo.png'); 
-    
-    /* Centraliza a imagem no meio da seção */
-    background-position: center; 
-    
-    /* Faz a imagem não se repetir (como um azulejo) */
-    background-repeat: no-repeat; 
-    
-    /* Define o tamanho da marca d'água (ex: 60% do tamanho da tela) */
-    background-size: 60%; 
-    
-    /* O SEGREDO: Mistura a imagem com o fundo preto, deixando ela bem fraca. 
-       O 'multiply' escurece a imagem, e a opacidade em conjunto fará ela parecer uma gravação no metal. */
-    background-blend-mode: multiply;
-}
-
-/* Para garantir que o texto fique legível em cima da imagem, 
-   damos um fundo escuro um pouco mais forte para os cards */
-.grid-servicos .card {
-    background-color: rgba(17, 17, 17, 0.95); /* O 0.95 dá 5% de transparência */
-    backdrop-filter: blur(5px); /* Desfoca o fundo sutilmente atrás do card */
-}
-
-/* ==========================================================================
-   CUSTOM SCROLLBAR (ESTILO INDUSTRIAL)
-   ========================================================================== */
-/* Mira na barra de rolagem inteira do navegador */
-::-webkit-scrollbar {
-    width: 12px; /* Deixa a barra um pouco mais fina e elegante */
-}
-
-/* O "trilho" por onde a barra corre */
-::-webkit-scrollbar-track {
-    background: var(--preto-fundo); 
-    border-left: 1px solid var(--borda-escura);
-}
-
-/* A "alavanca" que o usuário clica e arrasta */
-::-webkit-scrollbar-thumb {
-    background-color: var(--vermelho-escuro); 
-    border-radius: 6px; /* Arredonda as pontas */
-    border: 3px solid var(--preto-fundo); /* Cria um espaço entre a alavanca e o trilho */
-}
-
-/* Quando o usuário passa o mouse por cima da alavanca */
-::-webkit-scrollbar-thumb:hover {
-    background-color: var(--vermelho-logo); /* Fica com o vermelho vivo da logo */
-}
-/* ==========================================================================
-   ANIMAÇÃO DE PULSO (KEYFRAMES)
-   ========================================================================== */
-/* Primeiro, criamos a "receita" da animação e damos o nome de 'pulso-motor' */
-@keyframes pulso-motor {
-    0% {
-        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); /* Sombra colada no botão */
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(211, 47, 47, 0); /* Sombra expande 15px e desaparece (0 de opacidade) */
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); /* Retorna ao estado inicial */
-    }
-}
-
-/* Agora aplicamos essa animação no botão principal */
-.btn-primario {
-    /* Chama a animação 'pulso-motor', faz durar 2 segundos e repetir infinitamente (infinite) */
-    animation: pulso-motor 2s infinite;
-}
-
-/* Ao passar o mouse, a animação para, para o usuário conseguir clicar com precisão */
-.btn-primario:hover {
-    animation: none;
-    transform: translateY(-2px); /* O botão sobe um pouquinho */
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,900&family=Roboto:wght@400;700&display=swap');
-
-:root {
-    --preto-fundo: #050505;
-    --preto-cards: #111111;
-    --vermelho-logo: #D32F2F;
-    --vermelho-escuro: #9A0007;
-    --branco-puro: #FFFFFF;
-    --cinza-texto: #B0B0B0;
-    --borda-escura: #222222;
-    --verde-whatsapp: #25D366;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--preto-fundo);
-    color: var(--branco-puro);
-    line-height: 1.6;
-}
-
-/* ================== NAVBAR ================== */
-.navbar {
-    background-color: rgba(5, 5, 5, 0.95);
-    border-bottom: 2px solid var(--vermelho-logo);
-    padding: 15px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
-
-.logo-oficial {
-    height: 70px;
-    filter: drop-shadow(0px 2px 5px rgba(211, 47, 47, 0.4));
-    transition: transform 0.3s;
-}
-
-.logo-oficial:hover { transform: scale(1.05); }
-
-.menu-principal ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.menu-principal a {
-    color: var(--branco-puro);
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    transition: color 0.3s;
-    font-weight: 700;
-}
-
-.menu-principal a:hover { color: var(--vermelho-logo); }
-
-/* ================== HERO SECTION ================== */
-.hero {
-    background: linear-gradient(to bottom, rgba(5,5,5,0.7), rgba(5,5,5,1)), url('foto-motor-fundo.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 120px 5%;
-    text-align: center;
-}
-
-.hero h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900;
-    font-style: italic;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--cinza-texto);
-    max-width: 700px;
-    margin: 0 auto 40px;
-}
-
-/* BOTÕES */
-.btn-primario, .btn-secundario {
-    display: inline-block;
-    padding: 16px 35px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-    margin: 10px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.btn-primario {
-    background-color: var(--vermelho-logo);
-    color: var(--branco-puro);
-    border: 2px solid var(--vermelho-logo);
-    animation: pulso-motor 2s infinite;
-}
-
-.btn-primario:hover {
-    background-color: transparent;
-    color: var(--vermelho-logo);
-    animation: none;
-    transform: translateY(-3px);
-}
-
-.btn-secundario {
-    background-color: transparent;
-    color: var(--branco-puro);
-    border: 2px solid var(--branco-puro);
-}
-
-.btn-secundario:hover {
-    background-color: var(--branco-puro);
-    color: var(--preto-fundo);
-}
-
-/* ================== DIFERENCIAIS ================== */
-.diferenciais { padding: 80px 5%; }
-
-.grid-diferenciais {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.item-diferencial {
-    text-align: center;
-    padding: 30px;
-    background-color: var(--preto-cards);
-    border-radius: 8px;
-    border-top: 4px solid var(--vermelho-logo);
-    transition: 0.3s;
-}
-
-.item-diferencial:hover { transform: translateY(-5px); }
-
-/* ================== SEÇÃO DE PEÇAS (#vendas) ================== */
-#vendas {
-    padding: 80px 5%;
-    background-color: #0d0d0d;
-}
-
-#vendas article {
-    max-width: 900px;
-    margin: 0 auto;
-    background: var(--preto-cards);
-    padding: 40px;
-    border-radius: 12px;
-    border: 1px solid var(--borda-escura);
-}
-
-#vendas ul {
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    list-style: none;
-}
-
-#vendas li {
-    padding-left: 25px;
-    position: relative;
-    color: var(--cinza-texto);
-}
-
-#vendas li::before {
-    content: '✔';
-    position: absolute;
-    left: 0;
-    color: var(--vermelho-logo);
-    font-weight: bold;
-}
-
-/* ================== FORMULÁRIO (#agendamento) ================== */
-#agendamento {
-    padding: 100px 5%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-#agendamento h2 {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 10px;
-}
-
-#agendamento p {
-    text-align: center;
-    color: var(--cinza-texto);
-    margin-bottom: 40px;
-}
-
-fieldset {
-    border: 1px solid var(--borda-escura);
-    padding: 30px;
-    border-radius: 8px;
-    background: var(--preto-cards);
-}
-
-legend {
-    color: var(--vermelho-logo);
-    font-weight: bold;
-    padding: 0 10px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    background-color: #050505;
-    border: 1px solid var(--borda-escura);
-    color: white;
-    border-radius: 4px;
-    font-family: inherit;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--vermelho-logo);
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    background-color: var(--vermelho-logo);
-    color: white;
-    border: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button[type="submit"]:hover { background-color: var(--vermelho-escuro); }
-
-/* ================== FOOTER ================== */
-footer {
-    padding: 60px 5% 100px;
-    text-align: center;
-    border-top: 1px solid var(--borda-escura);
-    background-color: #030303;
-}
-
-footer a { color: var(--vermelho-logo); text-decoration: none; }
-
-/* ================== WHATSAPP & ANIMAÇÕES ================== */
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--verde-whatsapp);
-    color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
-    z-index: 9999;
-    transition: 0.3s;
-}
-
-.whatsapp-float:hover { transform: scale(1.1); }
-
-@keyframes pulso-motor {
-    0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(211, 47, 47, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
-}
-
-/* ================== RESPONSIVIDADE ================== */
-@media (max-width: 768px) {
-    .navbar { flex-direction: column; gap: 15px; }
-    .menu-principal ul { gap: 10px; font-size: 0.8rem; }
-    .btn-primario, .btn-secundario { width: 100%; margin: 10px 0; }
-}
-
-/* ============================================================
-   CONFIGURAÇÕES GERAIS E VARIÁVEIS
-============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,900&family=Roboto:wght@300;400;700&display=swap');
-
-:root {
-    --preto-fundo: #050505;
-    --preto-cards: #111111;
-    --vermelho-logo: #D32F2F;
-    --vermelho-escuro: #9A0007;
-    --branco-puro: #FFFFFF;
-    --cinza-texto: #B0B0B0;
-    --borda-escura: #222222;
-    --verde-whatsapp: #25D366;
-    --transicao: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--preto-fundo);
-    color: var(--branco-puro);
-    line-height: 1.6;
+    font-family: 'Barlow', sans-serif;
+    color: var(--text);
+    background:
+        linear-gradient(135deg, rgba(209, 53, 40, 0.09), transparent 34%),
+        linear-gradient(180deg, #111 0%, #070707 46%, #030303 100%);
+    line-height: 1.5;
     overflow-x: hidden;
 }
 
-/* Seleção de texto personalizada */
+body.menu-open {
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
 ::selection {
-    background-color: var(--vermelho-logo);
-    color: var(--branco-puro);
+    background: var(--brand);
+    color: #fff;
 }
 
-/* Barra de Rolagem Industrial */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--preto-fundo); }
-::-webkit-scrollbar-thumb { 
-    background: var(--vermelho-escuro); 
-    border-radius: 5px;
-}
-
-/* ============================================================
-   NAVBAR (Efeito de Vidro)
-============================================================ */
-.navbar {
-    background-color: rgba(5, 5, 5, 0.9);
-    border-bottom: 2px solid var(--vermelho-logo);
-    padding: 10px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.site-header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
+    background: rgba(5, 5, 5, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(14px);
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('logo_feio_Diesel.png') center / clamp(180px, 18vw, 300px) auto no-repeat;
+    opacity: 0.018;
+    pointer-events: none;
+}
+
+.site-header.is-scrolled {
+    background: rgba(5, 5, 5, 0.97);
+    border-bottom-color: rgba(209, 53, 40, 0.24);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.topbar,
+.navbar {
+    position: relative;
+    width: var(--container);
+    margin: 0 auto;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 11px 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.topbar a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar {
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    flex-shrink: 0;
 }
 
 .logo-oficial {
-    height: 60px;
-    filter: drop-shadow(0 0 10px rgba(211, 47, 47, 0.3));
-    transition: var(--transicao);
+    width: min(220px, 45vw);
+    height: auto;
+    filter: drop-shadow(0 10px 24px rgba(209, 53, 40, 0.24));
 }
-
-.logo-oficial:hover { transform: scale(1.05) rotate(-2deg); }
 
 .menu-principal ul {
     list-style: none;
     display: flex;
-    gap: 25px;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 19px;
 }
 
 .menu-principal a {
-    color: var(--branco-puro);
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: var(--transicao);
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    transition: color 0.2s ease;
 }
 
 .menu-principal a::after {
     content: '';
     position: absolute;
-    bottom: -5px;
     left: 0;
-    width: 0;
+    bottom: 3px;
+    width: 100%;
     height: 2px;
-    background: var(--vermelho-logo);
-    transition: var(--transicao);
+    background: linear-gradient(90deg, var(--brand), var(--amber));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.24s ease;
 }
 
-.menu-principal a:hover::after { width: 100%; }
-.menu-principal a:hover { color: var(--vermelho-logo); }
+.menu-principal a:hover,
+.menu-principal a:focus-visible,
+.menu-principal a.is-active {
+    color: var(--text);
+}
 
-/* ============================================================
-   HERO SECTION
-============================================================ */
+.menu-principal a:hover::after,
+.menu-principal a:focus-visible::after,
+.menu-principal a.is-active::after {
+    transform: scaleX(1);
+}
+
+.menu-toggle {
+    position: relative;
+    display: none;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin: 5px auto;
+    background: var(--text);
+    transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 950;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(4px);
+}
+
 .hero {
-    min-height: 80vh;
+    --hero-shift: 0px;
+    position: relative;
+    min-height: calc(100vh - 140px);
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 1)), 
-                url('https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&q=80') center/cover;
-    text-align: center;
-    padding: 0 5%;
+    padding: 64px 0 78px;
+    overflow: hidden;
 }
 
-.hero h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-weight: 900;
-    font-style: italic;
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(4, 4, 4, 0.96) 0%, rgba(4, 4, 4, 0.76) 48%, rgba(4, 4, 4, 0.92) 100%),
+        url('logo_feio_Diesel.png') right -60px center / min(40vw, 520px) auto no-repeat;
+    opacity: 0.22;
+    transform: translateY(var(--hero-shift));
+    transition: transform 0.18s linear;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 190px;
+    background: linear-gradient(180deg, transparent, rgba(7, 7, 7, 0.96));
+}
+
+.hero-conteudo {
+    position: relative;
+    width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    gap: 28px;
+}
+
+.eyebrow {
+    color: var(--amber);
     text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 20px;
-    text-shadow: 4px 4px 0px var(--vermelho-escuro);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.96rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
 }
 
-/* ============================================================
-   MARCAS (Slider ou Grade)
-============================================================ */
+.hero h1,
+.section-heading h2,
+.texto-vendas h2,
+.sobre-conteudo h2 {
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    line-height: 0.98;
+    letter-spacing: 0.01em;
+}
+
+.hero h1 {
+    max-width: 820px;
+    font-size: clamp(3.1rem, 7vw, 6rem);
+}
+
+.hero-texto {
+    max-width: 740px;
+    color: var(--muted);
+    font-size: clamp(1.06rem, 2.3vw, 1.28rem);
+}
+
+.hero-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn,
+.btn-submit,
+.whatsapp-float {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.btn {
+    min-height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn::before,
+.btn-submit::before,
+.menu-toggle::before,
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: calc(var(--pointer-x, 50%) - 60px);
+    top: calc(var(--pointer-y, 50%) - 60px);
+    width: 120px;
+    height: 120px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 64%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.24s ease;
+}
+
+.btn:hover,
+.btn:focus-visible,
+.btn-submit:hover,
+.btn-submit:focus-visible {
+    transform: translateY(-2px);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before,
+.btn-submit:hover::before,
+.btn-submit:focus-visible::before,
+.menu-toggle:hover::before,
+.menu-toggle:focus-visible::before,
+.whatsapp-float:hover::before,
+.whatsapp-float:focus-visible::before {
+    opacity: 1;
+}
+
+.btn-primario {
+    border: 1px solid var(--brand);
+    background: linear-gradient(135deg, var(--brand) 0%, #ef603c 100%);
+    color: #fff;
+    box-shadow: 0 18px 34px rgba(209, 53, 40, 0.22);
+}
+
+.btn-secundario {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+}
+
+.hero-destaques,
+.hero-painel,
+.linhas-grid,
+.galeria-shell,
+.grid-servicos,
+.processo-grid,
+.container-vendas,
+.contato-grid {
+    width: var(--container);
+    display: grid;
+    gap: 18px;
+}
+
+.hero-destaques {
+    width: min(980px, 100%);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hero-painel {
+    width: min(1080px, 100%);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hero-destaques article,
+.painel-item,
+.linha-card,
+.card,
+.processo-card,
+.tabela-servicos table,
+.contato-card,
+.contato-form fieldset {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+}
+
+.hero-destaques article,
+.painel-item {
+    padding: 20px;
+}
+
+.hero-destaques strong,
+.painel-item strong {
+    display: block;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.22rem;
+    text-transform: uppercase;
+    line-height: 1.04;
+}
+
+.hero-destaques span,
+.painel-item span {
+    color: var(--muted);
+}
+
+.painel-label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--amber);
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.86rem;
+}
+
+.marcas-parceiras,
+.secao-linhas,
+.secao-galeria,
+.secao-servicos,
+.secao-pecas,
+.secao-processo,
+.contato {
+    padding: 84px 0;
+}
+
 .marcas-parceiras {
-    background: #0a0a0a;
-    padding: 30px 5%;
-    border-bottom: 1px solid var(--borda-escura);
-    text-align: center;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.marcas-parceiras p,
+.section-heading {
+    width: var(--container);
+    margin: 0 auto;
 }
 
 .marcas-parceiras p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
+    margin-bottom: 24px;
+    color: var(--muted);
+    text-align: center;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--vermelho-logo);
-    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+    font-weight: 700;
 }
 
 .logos-marcas {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    opacity: 0.6;
-    filter: grayscale(1);
-    transition: var(--transicao);
+    width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
 }
 
 .logos-marcas span {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 900;
-}
-
-.logos-marcas:hover { opacity: 1; filter: grayscale(0); }
-
-/* ============================================================
-   SEÇÃO DETALHES (Tabela e Conteúdo)
-============================================================ */
-.secao-detalhes {
-    padding: 100px 5%;
-    background: linear-gradient(45deg, #050505, #111111);
-}
-
-.container-vendas {
-    max-width: 1200px;
-    margin: 0 auto;
+    min-height: 88px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    place-items: center;
+    border: 1px solid rgba(209, 53, 40, 0.28);
+    border-radius: var(--radius);
+    background:
+        linear-gradient(135deg, rgba(209, 53, 40, 0.13), rgba(255, 255, 255, 0.03)),
+        rgba(255, 255, 255, 0.02);
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    font-weight: 700;
 }
 
-.texto-vendas h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--vermelho-logo);
+.section-heading {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 34px;
 }
 
-.lista-check {
-    margin-top: 30px;
-    list-style: none;
+.section-heading h2 {
+    max-width: 800px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
 }
 
-.lista-check li {
-    margin-bottom: 15px;
-    font-weight: bold;
+.secao-linhas {
+    background:
+        radial-gradient(circle at top right, rgba(209, 53, 40, 0.12), transparent 24%),
+        rgba(7, 7, 7, 0.66);
+}
+
+.secao-galeria {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0)),
+        rgba(9, 9, 9, 0.78);
+}
+
+.galeria-shell {
+    margin: 0 auto;
+}
+
+.galeria-controles {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
-.lista-check li::before {
-    content: '➔';
-    color: var(--vermelho-logo);
+.galeria-tab {
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--muted);
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-/* Tabela Profissional */
+.galeria-tab:hover,
+.galeria-tab:focus-visible,
+.galeria-tab.is-active {
+    color: var(--text);
+    border-color: rgba(209, 53, 40, 0.5);
+    background: var(--brand-soft);
+    transform: translateY(-1px);
+}
+
+.galeria-preview {
+    min-height: clamp(360px, 48vw, 620px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+    align-items: end;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+}
+
+.galeria-preview img {
+    width: 100%;
+    height: 100%;
+    min-height: clamp(320px, 42vw, 620px);
+    object-fit: cover;
+    filter: saturate(0.95) contrast(1.04);
+}
+
+.galeria-preview-texto {
+    height: 100%;
+    display: grid;
+    align-content: end;
+    gap: 10px;
+    padding: clamp(22px, 4vw, 38px);
+    background:
+        linear-gradient(180deg, rgba(209, 53, 40, 0.1), rgba(255, 255, 255, 0.02)),
+        rgba(10, 10, 10, 0.95);
+}
+
+.galeria-preview-texto span,
+.galeria-card span {
+    color: var(--amber);
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.galeria-preview-texto h3 {
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 0.98;
+}
+
+.galeria-preview-texto p,
+.galeria-card p {
+    color: var(--muted);
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.galeria-card {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    opacity: 0.34;
+    transform: scale(0.985);
+    transition: opacity 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
+}
+
+.galeria-card.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.galeria-card.is-hidden {
+    display: none;
+}
+
+.galeria-card.is-active,
+.galeria-card:hover,
+.galeria-card:focus-within {
+    border-color: rgba(209, 53, 40, 0.55);
+}
+
+.galeria-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.galeria-card div {
+    display: grid;
+    gap: 7px;
+    padding: 16px;
+}
+
+.galeria-card h3 {
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.linhas-grid,
+.galeria-shell,
+.grid-servicos,
+.processo-grid,
+.container-vendas,
+.contato-grid {
+    margin: 0 auto;
+}
+
+.linhas-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.linha-card {
+    position: relative;
+    min-height: 100%;
+    padding: 28px;
+    overflow: hidden;
+}
+
+.linha-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand), var(--amber));
+}
+
+.linha-card.destaque {
+    background:
+        linear-gradient(180deg, rgba(209, 53, 40, 0.14), rgba(255, 255, 255, 0.03)),
+        var(--panel);
+}
+
+.linha-marca {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--brand-soft);
+    color: #ffd0c8;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.linha-card h3,
+.card h3,
+.processo-card h3,
+.contato-card h3,
+legend {
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.linha-card h3,
+.card h3,
+.processo-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.55rem;
+}
+
+.linha-card p,
+.card p,
+.processo-card p,
+.texto-vendas p,
+.contato-card p,
+.contato-info p {
+    color: var(--muted);
+}
+
+.linha-card ul,
+.lista-check {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.linha-card li,
+.lista-check li {
+    position: relative;
+    padding-left: 25px;
+}
+
+.linha-card li::before,
+.lista-check li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--brand);
+    box-shadow: 0 0 0 6px var(--brand-soft);
+}
+
+.secao-servicos {
+    background: rgba(12, 12, 12, 0.78);
+}
+
+.grid-servicos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card,
+.processo-card {
+    min-height: 100%;
+    padding: 28px;
+}
+
+.card-numero,
+.processo-card span {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: var(--brand-soft);
+    color: #ffd0c8;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+}
+
+.secao-pecas {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent 32%),
+        rgba(7, 7, 7, 0.68);
+}
+
+.container-vendas,
+.contato-grid {
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+    align-items: start;
+}
+
+.texto-vendas h2 {
+    margin: 12px 0 18px;
+    font-size: clamp(2rem, 4.6vw, 3.35rem);
+}
+
 .tabela-servicos table {
     width: 100%;
     border-collapse: collapse;
-    background: var(--preto-cards);
-    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.tabela-servicos th, .tabela-servicos td {
-    padding: 20px;
+.tabela-servicos caption {
+    padding-bottom: 14px;
+    color: var(--amber);
     text-align: left;
-    border-bottom: 1px solid var(--borda-escura);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.tabela-servicos th,
+.tabela-servicos td {
+    padding: 18px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
 }
 
 .tabela-servicos th {
-    background-color: var(--vermelho-logo);
-    font-family: 'Montserrat', sans-serif;
+    background: rgba(209, 53, 40, 0.18);
+    font-family: 'Rajdhani', sans-serif;
     text-transform: uppercase;
-    font-size: 0.8rem;
 }
 
-.tabela-servicos tr:hover { background: #1a1a1a; }
-
-/* ============================================================
-   CARDS DE SERVIÇO (Glassmorphism)
-============================================================ */
-.secao-escura {
-    background-attachment: fixed; /* Efeito Parallax na marca d'água */
+.tabela-servicos tr:last-child td {
+    border-bottom: 0;
 }
 
-.card {
-    background: rgba(17, 17, 17, 0.8);
-    backdrop-filter: blur(5px);
-    border: 1px solid var(--borda-escura);
-    transition: var(--transicao);
+.secao-processo {
+    background:
+        radial-gradient(circle at top left, rgba(242, 169, 79, 0.1), transparent 22%),
+        rgba(10, 10, 10, 0.78);
 }
 
-.card:hover {
-    border-color: var(--vermelho-logo);
-    box-shadow: 0 0 30px rgba(211, 47, 47, 0.2);
+.processo-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* ============================================================
-   RESPONSIVIDADE AJUSTADA
-============================================================ */
-@media (max-width: 968px) {
-    .container-vendas {
+.contato-card,
+.contato-form fieldset {
+    padding: 28px;
+}
+
+.contato-info {
+    display: grid;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.contato-info a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.contato-form fieldset {
+    border: 1px solid var(--line);
+}
+
+legend {
+    padding: 0 8px;
+    color: var(--amber);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--text);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #938a7d;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 0;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(209, 53, 40, 0.17);
+}
+
+.btn-submit {
+    width: 100%;
+    min-height: 54px;
+    border: 0;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--brand) 0%, #ef603c 100%);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-submit:disabled {
+    cursor: wait;
+    opacity: 0.9;
+}
+
+.btn-submit.is-success {
+    background: linear-gradient(135deg, #159447 0%, var(--success) 100%);
+}
+
+.site-footer {
+    width: var(--container);
+    margin: 0 auto;
+    padding: 30px 0 104px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+}
+
+.image-credits {
+    max-width: 720px;
+    margin-top: 10px;
+    font-size: 0.86rem;
+}
+
+.image-credits a {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: rgba(209, 53, 40, 0.7);
+    text-underline-offset: 3px;
+}
+
+.whatsapp-float {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 1200;
+    min-width: 148px;
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: var(--success);
+    color: #06240f;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 18px 30px rgba(37, 211, 102, 0.22);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+    transition:
+        opacity 0.55s ease var(--reveal-delay, 0ms),
+        transform 0.55s ease var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@media (max-width: 1080px) {
+    .grid-servicos,
+    .processo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .galeria-preview {
         grid-template-columns: 1fr;
     }
-    
-    .navbar {
-        padding: 20px;
+
+    .galeria-preview img {
+        min-height: 420px;
     }
-    
-    .menu-principal {
-        display: none; /* Em um projeto real, aqui entraria um menu hamburguer */
+
+    .galeria-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-destaques,
+    .hero-painel,
+    .linhas-grid,
+    .container-vendas,
+    .contato-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-/* Re-aproveitando os botões e animações anteriores */
-.btn-primario, .btn-secundario {
-    padding: 18px 40px;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+@media (max-width: 820px) {
+    .topbar {
+        display: none;
+    }
+
+    .navbar {
+        min-height: 74px;
+        padding: 12px 0;
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-principal {
+        position: fixed;
+        top: 74px;
+        right: 0;
+        z-index: 1100;
+        width: min(330px, calc(100vw - 24px));
+        display: block;
+        padding: 12px;
+        transform: translateX(calc(100% + 18px));
+        transition: transform 0.25s ease;
+    }
+
+    .menu-principal.is-open {
+        transform: translateX(0);
+    }
+
+    .menu-principal ul {
+        display: grid;
+        gap: 10px;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+            rgba(10, 10, 10, 0.98);
+        box-shadow: 0 24px 44px rgba(0, 0, 0, 0.42);
+    }
+
+    .menu-principal a {
+        width: 100%;
+        padding: 13px 14px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+    }
+
+    .menu-principal a::after {
+        bottom: 0;
+    }
+
+    .menu-toggle[aria-expanded='true'] span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded='true'] span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded='true'] span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 50px 0 60px;
+    }
+
+    .hero::before {
+        background:
+            linear-gradient(180deg, rgba(4, 4, 4, 0.95), rgba(4, 4, 4, 0.9)),
+            url('logo_feio_Diesel.png') center bottom / 72vw auto no-repeat;
+        opacity: 0.14;
+    }
+
+    .hero-destaques,
+    .hero-painel,
+    .linhas-grid,
+    .grid-servicos,
+    .processo-grid,
+    .logos-marcas,
+    .container-vendas,
+    .contato-grid,
+    .site-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-acoes .btn,
+    .btn-submit {
+        width: 100%;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 92px;
+    }
+}
+
+@media (max-width: 560px) {
+    .marcas-parceiras,
+    .secao-linhas,
+    .secao-galeria,
+    .secao-servicos,
+    .secao-pecas,
+    .secao-processo,
+    .contato {
+        padding: 64px 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.55rem, 13vw, 3.45rem);
+    }
+
+    .section-heading h2,
+    .texto-vendas h2 {
+        font-size: clamp(1.9rem, 10vw, 2.55rem);
+    }
+
+    .galeria-controles {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .galeria-tab {
+        width: 100%;
+    }
+
+    .galeria-preview {
+        min-height: auto;
+    }
+
+    .galeria-preview img {
+        min-height: 250px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .linha-card,
+    .card,
+    .processo-card,
+    .contato-card,
+    .contato-form fieldset {
+        padding: 22px;
+    }
+
+    .tabela-servicos th,
+    .tabela-servicos td {
+        padding: 14px;
+        font-size: 0.95rem;
+    }
+
+    .whatsapp-float {
+        right: 12px;
+        left: 12px;
+        bottom: 12px;
+        width: auto;
+    }
+}
+
+@media (min-width: 1600px) {
+    :root {
+        --container: min(1380px, calc(100% - 96px));
+    }
+
+    .site-header::before {
+        background-size: 320px auto;
+        opacity: 0.014;
+    }
+
+    .hero::before {
+        background:
+            linear-gradient(90deg, rgba(4, 4, 4, 0.96) 0%, rgba(4, 4, 4, 0.78) 50%, rgba(4, 4, 4, 0.92) 100%),
+            url('logo_feio_Diesel.png') right 2vw center / min(32vw, 560px) auto no-repeat;
+        opacity: 0.16;
+    }
+
+    .galeria-preview {
+        min-height: 680px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
 }
