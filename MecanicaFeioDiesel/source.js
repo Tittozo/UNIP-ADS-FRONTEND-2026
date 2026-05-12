@@ -52,14 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (menuToggle && menu) {
         const setMenuState = (open) => {
+            const isDesktop = window.innerWidth > 820;
+
             menu.classList.toggle('is-open', open);
             menuToggle.setAttribute('aria-expanded', String(open));
-            menu.setAttribute('aria-hidden', String(!open));
+            menu.setAttribute('aria-hidden', String(!open && !isDesktop));
             menuToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-            body.classList.toggle('menu-open', open);
+            body.classList.toggle('menu-open', open && !isDesktop);
 
             if (menuBackdrop) {
-                menuBackdrop.hidden = !open;
+                menuBackdrop.hidden = !open || isDesktop;
             }
         };
 
@@ -89,8 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', () => {
             if (window.innerWidth > 820) {
                 setMenuState(false);
+            } else {
+                menu.setAttribute('aria-hidden', 'true');
             }
         });
+
+        setMenuState(false);
     }
 
     revealItems.forEach((item, index) => {
