@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
         scania: {
             label: 'Scania',
             cockpitCopy: 'Motor, potência, vazamentos e preventiva para operação pesada.',
+            image: 'assets/scania-truck-brasil.jpg',
+            imageAlt: 'Caminhão Scania em rota brasileira',
+            imageKicker: 'Scania no Brasil',
+            imageTitle: 'Caminhão Scania em operação rodoviária',
             priority: 82,
             stopLabel: 'Baixo',
             stopValue: 42,
@@ -35,12 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
         volvo: {
             label: 'Volvo',
             cockpitCopy: 'Confiabilidade, temperatura, sensores e disponibilidade para rotina intensa.',
+            image: 'assets/volvo-vm-brasil.jpg',
+            imageAlt: 'Caminhão Volvo VM Euro 6 em rodovia brasileira',
+            imageKicker: 'Volvo no Brasil',
+            imageTitle: 'Aplicação rodoviária sul-americana',
             priority: 76,
-            stopLabel: 'Medio',
+            stopLabel: 'Médio',
             stopValue: 58,
             system: 'Arrefecimento',
             systemValue: 74,
-            kicker: 'Caminhoes Volvo',
+            kicker: 'Caminhões Volvo',
             title: 'Precisão para alta disponibilidade',
             description: 'Triagem para superaquecimento, consumo, sensores, sistema auxiliar e manutenção de frota.',
             lineSystem: 'Sensores',
@@ -50,10 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
         mwm: {
             label: 'MWM',
             cockpitCopy: 'Montagem, retífica, alimentação e aplicação correta de peças.',
+            image: 'assets/mwm-engine-7-2-euro-v.jpg',
+            imageAlt: 'Motor MWM 7.2 litros Euro V',
+            imageKicker: 'MWM América Latina',
+            imageTitle: 'Motor para aplicação veicular',
             priority: 68,
             stopLabel: 'Controle',
             stopValue: 48,
-            system: 'Retifica',
+            system: 'Retífica',
             systemValue: 66,
             kicker: 'Motores MWM',
             title: 'Motor tratado com critério',
@@ -315,6 +327,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setText('#cockpit-brand', data.label);
         setText('#cockpit-copy', data.cockpitCopy);
+        setText('#cockpit-image-kicker', data.imageKicker);
+        setText('#cockpit-image-title', data.imageTitle);
         setText('#gauge-priority', `${data.priority}%`);
         setText('#gauge-stop', data.stopLabel);
         setText('#gauge-system', data.system);
@@ -328,6 +342,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setText('#line-system', data.lineSystem);
         setText('#line-response', data.lineResponse);
         setText('#line-routine', data.lineRoutine);
+
+        document.querySelectorAll('#cockpit-image, #line-image').forEach((image) => {
+            image.src = data.image;
+            image.alt = data.imageAlt;
+        });
 
         triageState.brand = data.label;
         document.querySelectorAll('[data-group="brand"] .choice').forEach((button) => {
@@ -566,4 +585,3 @@ document.addEventListener('DOMContentLoaded', () => {
     syncScroll();
     window.addEventListener('scroll', syncScroll, { passive: true });
 });
-
