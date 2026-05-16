@@ -1,1 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Feio Diesel v2: site interativo para mecânica diesel em Iepê/SP, com atendimento para Scania, Volvo e motores MWM.">
+    <link rel="icon" type="image/png" href="logo_feio_Diesel.png">
+    <link rel="stylesheet" href="source.css">
+    <title>Feio Diesel V2 | Diagnóstico Diesel Interativo</title>
+</head>
+<body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <div class="topbar">
+            <p>Iepê/SP | Scania, Volvo e MWM</p>
+            <a href="https://wa.me/5518999999999" target="_blank" rel="noreferrer">Atendimento técnico</a>
+        </div>
+
+        <div class="navbar">
+            <a class="brand" href="#inicio" aria-label="Feio Diesel inicio">
+                <span class="brand-mark">
+                    <img src="logo_feio_Diesel.png" alt="Logo Feio Diesel em PNG">
+                </span>
+                <span class="brand-type">
+                    <span>Feio</span>
+                    <strong>Diesel</strong>
+                </span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="menu-principal" class="menu-principal" aria-hidden="true">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#linhas">Linhas</a></li>
+                    <li><a href="#triagem">Triagem</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#pecas">Peças</a></li>
+                    <li><a href="#processo">Processo</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="menu-backdrop" hidden></div>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Feio Diesel V2</p>
+                    <h1>Diagnóstico diesel pesado com resposta rápida.</h1>
+                    <p>
+                        Uma experiência mais viva para apresentar a oficina: leitura técnica, triagem inteligente, serviços por sistema e contato direto para quem precisa colocar o caminhão para rodar.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#triagem">Montar diagnóstico</a>
+                        <a class="btn btn-secondary" href="#linhas">Ver linhas atendidas</a>
+                    </div>
+
+                    <div class="brand-switch" aria-label="Selecionar marca no painel principal">
+                        <button class="brand-pill is-active" type="button" data-brand="scania">Scania</button>
+                        <button class="brand-pill" type="button" data-brand="volvo">Volvo</button>
+                        <button class="brand-pill" type="button" data-brand="mwm">MWM</button>
+                    </div>
+                </div>
+
+                <aside class="cockpit-panel" aria-label="Painel operacional Feio Diesel">
+                    <div class="cockpit-logo">
+                        <img src="logo_feio_Diesel.png" alt="Logo Feio Diesel em PNG">
+                    </div>
+
+                    <div class="cockpit-status">
+                        <span class="status-light"></span>
+                        <span>Oficina pronta</span>
+                    </div>
+
+                    <div class="cockpit-readout">
+                        <span>Linha em foco</span>
+                        <strong id="cockpit-brand">Scania</strong>
+                        <p id="cockpit-copy">Motor, potencia, vazamentos e preventiva para operacao pesada.</p>
+                    </div>
+
+                    <div class="cockpit-gauges">
+                        <article>
+                            <span>Prioridade</span>
+                            <strong id="gauge-priority">82%</strong>
+                            <div class="bar"><span id="bar-priority"></span></div>
+                        </article>
+                        <article>
+                            <span>Tempo parado</span>
+                            <strong id="gauge-stop">Baixo</strong>
+                            <div class="bar"><span id="bar-stop"></span></div>
+                        </article>
+                        <article>
+                            <span>Conjunto</span>
+                            <strong id="gauge-system">Motor</strong>
+                            <div class="bar"><span id="bar-system"></span></div>
+                        </article>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="signal-strip" aria-label="Destaques da oficina">
+            <div class="signal-grid">
+                <article>
+                    <span>01</span>
+                    <strong>Diagnóstico</strong>
+                    <p>Falha, aquecimento, consumo, partida e rendimento.</p>
+                </article>
+                <article>
+                    <span>02</span>
+                    <strong>Motor diesel</strong>
+                    <p>Montagem, retífica, injeção e sistemas auxiliares.</p>
+                </article>
+                <article>
+                    <span>03</span>
+                    <strong>Peças certas</strong>
+                    <p>Aplicação por marca, modelo, sintoma e urgência.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="linhas" class="section section-lines">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Linhas atendidas</p>
+                <h2>Scania, Volvo e MWM em um painel de decisão.</h2>
+            </div>
+
+            <div class="line-layout">
+                <div class="line-tabs reveal" role="tablist" aria-label="Linhas diesel">
+                    <button class="line-tab is-active" type="button" data-brand="scania" aria-selected="true">Scania</button>
+                    <button class="line-tab" type="button" data-brand="volvo" aria-selected="false">Volvo</button>
+                    <button class="line-tab" type="button" data-brand="mwm" aria-selected="false">MWM</button>
+                </div>
+
+                <div class="line-stage reveal" aria-live="polite">
+                    <div>
+                        <span id="line-kicker">Caminhões Scania</span>
+                        <h3 id="line-title">Força para estrada e carga pesada</h3>
+                        <p id="line-description">Atendimento para perda de potência, vazamentos, arrefecimento, injeção e preventiva de operação intensa.</p>
+                    </div>
+
+                    <div class="engine-visual" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="line-data">
+                        <article>
+                            <span>Sistema principal</span>
+                            <strong id="line-system">Motor</strong>
+                        </article>
+                        <article>
+                            <span>Resposta</span>
+                            <strong id="line-response">Alta</strong>
+                        </article>
+                        <article>
+                            <span>Rotina</span>
+                            <strong id="line-routine">Preventiva</strong>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="triagem" class="section section-triage">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Triagem interativa</p>
+                <h2>Monte um resumo técnico antes de chamar a oficina.</h2>
+            </div>
+
+            <div class="triage-grid">
+                <div class="triage-controls reveal">
+                    <fieldset>
+                        <legend>Marca</legend>
+                        <div class="segmented" data-group="brand">
+                            <button class="choice is-active" type="button" data-value="Scania">Scania</button>
+                            <button class="choice" type="button" data-value="Volvo">Volvo</button>
+                            <button class="choice" type="button" data-value="MWM">MWM</button>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Sintomas</legend>
+                        <div class="symptom-grid">
+                            <button class="symptom-choice" type="button" data-symptom="perda de força" data-score="24">Perda de força</button>
+                            <button class="symptom-choice" type="button" data-symptom="aquecimento" data-score="28">Aquecimento</button>
+                            <button class="symptom-choice" type="button" data-symptom="falha na partida" data-score="22">Falha na partida</button>
+                            <button class="symptom-choice" type="button" data-symptom="fumaça excessiva" data-score="18">Fumaça</button>
+                            <button class="symptom-choice" type="button" data-symptom="vazamento" data-score="16">Vazamento</button>
+                            <button class="symptom-choice" type="button" data-symptom="preventiva" data-score="8">Preventiva</button>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Condição atual</legend>
+                        <div class="segmented" data-group="condition">
+                            <button class="choice is-active" type="button" data-value="rodando" data-score="8">Rodando</button>
+                            <button class="choice" type="button" data-value="parado" data-score="24">Parado</button>
+                            <button class="choice" type="button" data-value="urgente" data-score="34">Urgente</button>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <aside class="triage-result reveal" aria-live="polite">
+                    <div class="priority-head">
+                        <span>Prioridade técnica</span>
+                        <strong id="priority-label">Moderada</strong>
+                    </div>
+
+                    <div class="priority-meter" aria-hidden="true">
+                        <span id="priority-fill"></span>
+                    </div>
+
+                    <div class="message-preview">
+                        <span>Resumo para atendimento</span>
+                        <p id="triage-message">Tenho um veiculo Scania, ele esta rodando. Sintomas: aguardando selecao.</p>
+                    </div>
+
+                    <div class="triage-actions">
+                        <button class="btn btn-secondary" type="button" id="copy-triage">Copiar resumo</button>
+                        <a class="btn btn-primary" id="triage-whatsapp" href="https://wa.me/5518999999999" target="_blank" rel="noreferrer">Enviar resumo</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="servicos" class="section section-services">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Serviços principais</p>
+                <h2>Escolha um sistema e veja o foco da manutenção.</h2>
+            </div>
+
+            <div class="service-layout">
+                <div class="service-list reveal" aria-label="Lista de servicos">
+                    <button class="service-item is-active" type="button" data-service="diagnostico">
+                        <span>01</span>
+                        <strong>Diagnóstico diesel</strong>
+                    </button>
+                    <button class="service-item" type="button" data-service="motor">
+                        <span>02</span>
+                        <strong>Motor e retífica</strong>
+                    </button>
+                    <button class="service-item" type="button" data-service="injecao">
+                        <span>03</span>
+                        <strong>Injeção e alimentação</strong>
+                    </button>
+                    <button class="service-item" type="button" data-service="arrefecimento">
+                        <span>04</span>
+                        <strong>Arrefecimento</strong>
+                    </button>
+                </div>
+
+                <article class="service-detail reveal" aria-live="polite">
+                    <span id="service-code">Sistema 01</span>
+                    <h3 id="service-title">Diagnóstico diesel</h3>
+                    <p id="service-copy">Análise de sintomas, histórico, comportamento do motor e risco de continuar rodando.</p>
+                    <ul id="service-list">
+                        <li>Falhas mecanicas e eletricas</li>
+                        <li>Consumo, potencia e partida</li>
+                        <li>Plano de reparo antes da troca de pecas</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="pecas" class="section section-parts">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Peças e reposição</p>
+                <h2>Mapa de componentes para comprar certo e montar melhor.</h2>
+            </div>
+
+            <div class="parts-layout">
+                <div class="parts-wheel reveal" aria-label="Categorias de pecas">
+                    <button class="part-node is-active" type="button" data-part="motor">Motor</button>
+                    <button class="part-node" type="button" data-part="injecao">Injeção</button>
+                    <button class="part-node" type="button" data-part="arrefecimento">Arrefecimento</button>
+                    <button class="part-node" type="button" data-part="revisao">Revisão</button>
+                </div>
+
+                <article class="parts-detail reveal" aria-live="polite">
+                    <span id="part-kicker">Kits e montagem</span>
+                    <h3 id="part-title">Motor</h3>
+                    <p id="part-copy">Pistões, anéis, bronzinas, juntas, vedadores e itens de montagem conforme aplicação.</p>
+                    <div id="part-tags" class="tag-list">
+                        <span>Scania</span>
+                        <span>Volvo</span>
+                        <span>MWM</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="processo" class="section section-process">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Processo Feio Diesel</p>
+                <h2>Uma sequência clara reduz parada e retrabalho.</h2>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-steps reveal">
+                    <button class="process-step is-active" type="button" data-step="triagem">
+                        <span>01</span>
+                        <strong>Triagem</strong>
+                    </button>
+                    <button class="process-step" type="button" data-step="avaliacao">
+                        <span>02</span>
+                        <strong>Avaliação</strong>
+                    </button>
+                    <button class="process-step" type="button" data-step="execucao">
+                        <span>03</span>
+                        <strong>Execução</strong>
+                    </button>
+                    <button class="process-step" type="button" data-step="entrega">
+                        <span>04</span>
+                        <strong>Entrega</strong>
+                    </button>
+                </div>
+
+                <article class="process-detail reveal" aria-live="polite">
+                    <span id="process-kicker">Etapa 01</span>
+                    <h3 id="process-title">Triagem</h3>
+                    <p id="process-copy">Coleta de marca, modelo, sintomas, condição do veículo e urgência para montar o primeiro caminho técnico.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contato" class="section section-contact">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Contato técnico</p>
+                <h2>Chame a Feio Diesel com os dados certos em mãos.</h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card reveal">
+                    <h3>Feio Diesel</h3>
+                    <p>Mecânica diesel para Scania, Volvo e MWM em Iepê/SP.</p>
+                    <dl>
+                        <div>
+                            <dt>Instagram</dt>
+                            <dd><a href="https://www.instagram.com/feiodiesel_iepe/" target="_blank" rel="noreferrer">@feiodiesel_iepe</a></dd>
+                        </div>
+                        <div>
+                            <dt>WhatsApp</dt>
+                            <dd><a href="https://wa.me/5518999999999" target="_blank" rel="noreferrer">(18) 99999-9999</a></dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <form id="contato-form" class="contact-form reveal">
+                    <fieldset>
+                        <legend>Solicitar atendimento</legend>
+
+                        <label for="nome">Nome ou empresa</label>
+                        <input id="nome" name="nome" type="text" required placeholder="Digite seu nome ou empresa">
+
+                        <label for="telefone">Telefone</label>
+                        <input id="telefone" name="telefone" type="tel" required inputmode="tel" placeholder="(18) 99999-9999">
+
+                        <label for="linha">Linha</label>
+                        <select id="linha" name="linha" required>
+                            <option value="Scania">Scania</option>
+                            <option value="Volvo">Volvo</option>
+                            <option value="MWM">MWM</option>
+                            <option value="Peças e orçamento">Peças e orçamento</option>
+                            <option value="Diagnóstico diesel">Diagnóstico diesel</option>
+                        </select>
+
+                        <label for="mensagem">Problema ou necessidade</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Ex.: Scania sem forca, Volvo aquecendo, motor MWM com falha na partida..."></textarea>
+
+                        <button class="btn-submit" type="submit">Abrir WhatsApp</button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>Feio Diesel V2</strong>
+            <p>Site interativo com logo PNG local.</p>
+        </div>
+        <small>&copy; <span id="ano-atual"></span> Feio Diesel. Todos os direitos reservados.</small>
+    </footer>
+
+    <a class="whatsapp-float" href="https://wa.me/5518999999999" target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp">
+        WhatsApp
+    </a>
+
+    <script src="source.js"></script>
+</body>
+</html>
 
