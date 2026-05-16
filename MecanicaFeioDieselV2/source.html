@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Feio Diesel v2: site interativo para mecânica diesel em Iepê/SP, com atendimento para Scania, Volvo e motores MWM.">
-    <link rel="icon" type="image/png" href="logo_feio_Diesel.png">
+    <link rel="icon" type="image/png" href="assets/feio-diesel-logo-v2.png">
     <link rel="stylesheet" href="source.css">
     <title>Feio Diesel V2 | Diagnóstico Diesel Interativo</title>
 </head>
@@ -19,13 +19,7 @@
 
         <div class="navbar">
             <a class="brand" href="#inicio" aria-label="Feio Diesel inicio">
-                <span class="brand-mark">
-                    <img src="logo_feio_Diesel.png" alt="Logo Feio Diesel em PNG">
-                </span>
-                <span class="brand-type">
-                    <span>Feio</span>
-                    <strong>Diesel</strong>
-                </span>
+                <img class="brand-logo" src="assets/feio-diesel-logo-v2.png" alt="Logo Feio Diesel em PNG">
             </a>
 
             <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
@@ -37,6 +31,7 @@
             <nav id="menu-principal" class="menu-principal" aria-hidden="true">
                 <ul>
                     <li><a href="#inicio">Início</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
                     <li><a href="#linhas">Linhas</a></li>
                     <li><a href="#triagem">Triagem</a></li>
                     <li><a href="#servicos">Serviços</a></li>
@@ -73,8 +68,12 @@
                 </div>
 
                 <aside class="cockpit-panel" aria-label="Painel operacional Feio Diesel">
-                    <div class="cockpit-logo">
-                        <img src="logo_feio_Diesel.png" alt="Logo Feio Diesel em PNG">
+                    <div class="cockpit-photo">
+                        <img id="cockpit-image" src="assets/scania-truck-brasil.jpg" alt="Caminhao Scania em rodovia brasileira">
+                        <div>
+                            <span id="cockpit-image-kicker">Scania no Brasil</span>
+                            <strong id="cockpit-image-title">Caminhão Scania em operação rodoviária</strong>
+                        </div>
                     </div>
 
                     <div class="cockpit-status">
@@ -129,6 +128,51 @@
             </div>
         </section>
 
+        <section id="galeria" class="section section-gallery">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Fotos técnicas</p>
+                <h2>Caminhões e motores com linguagem mais próxima da América do Sul.</h2>
+            </div>
+
+            <div class="photo-grid">
+                <article class="photo-card reveal">
+                    <img src="assets/scania-truck-brasil.jpg" alt="Caminhao Scania em posto na BR-158, Mato Grosso, Brasil" loading="lazy">
+                    <div>
+                        <span>Scania | Brasil</span>
+                        <h3>Operação rodoviária pesada</h3>
+                    </div>
+                </article>
+                <article class="photo-card reveal">
+                    <img src="assets/scania-engine-factory.jpg" alt="Motor Scania em linha de montagem no Brasil" loading="lazy">
+                    <div>
+                        <span>Scania | Fábrica de motores</span>
+                        <h3>Montagem e controle técnico</h3>
+                    </div>
+                </article>
+                <article class="photo-card reveal">
+                    <img src="assets/volvo-vm-brasil.jpg" alt="Caminhão Volvo VM Euro 6 em rodovia brasileira" loading="lazy">
+                    <div>
+                        <span>Volvo | Brasil</span>
+                        <h3>Aplicação rodoviária</h3>
+                    </div>
+                </article>
+                <article class="photo-card reveal">
+                    <img src="assets/volvo-engine-d13.jpg" alt="Motor diesel Volvo D13" loading="lazy">
+                    <div>
+                        <span>Volvo | Motor</span>
+                        <h3>Diagnóstico de motor</h3>
+                    </div>
+                </article>
+                <article class="photo-card reveal photo-card-wide">
+                    <img src="assets/mwm-engine-7-2-euro-v.jpg" alt="Motor MWM 7.2 litros Euro V" loading="lazy">
+                    <div>
+                        <span>MWM | América Latina</span>
+                        <h3>Motores para aplicacao veicular</h3>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <section id="linhas" class="section section-lines">
             <div class="section-heading reveal">
                 <p class="eyebrow">Linhas atendidas</p>
@@ -149,11 +193,8 @@
                         <p id="line-description">Atendimento para perda de potência, vazamentos, arrefecimento, injeção e preventiva de operação intensa.</p>
                     </div>
 
-                    <div class="engine-visual" aria-hidden="true">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <div class="line-photo">
+                        <img id="line-image" src="assets/scania-truck-brasil.jpg" alt="Caminhao Scania em rota brasileira">
                     </div>
 
                     <div class="line-data">
@@ -402,4 +443,3 @@
     <script src="source.js"></script>
 </body>
 </html>
-
