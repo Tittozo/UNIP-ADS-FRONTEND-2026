@@ -132,39 +132,10 @@ button {
     text-decoration: none;
 }
 
-.brand-mark {
-    width: 56px;
-    height: 56px;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 8px;
-    background: #000;
-    box-shadow: 0 14px 28px rgba(237, 45, 45, 0.2);
-}
-
-.brand-mark img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.brand-type {
-    display: grid;
-    line-height: 0.92;
-    text-transform: uppercase;
-}
-
-.brand-type span,
-.brand-type strong {
-    font-size: 1.35rem;
-    letter-spacing: 0;
-}
-
-.brand-type strong {
-    color: var(--brand);
+.brand-logo {
+    width: clamp(148px, 18vw, 218px);
+    height: auto;
+    filter: drop-shadow(0 12px 22px rgba(237, 45, 45, 0.18));
 }
 
 .menu-principal ul {
@@ -251,10 +222,13 @@ button {
 .hero::before {
     position: absolute;
     inset: 0;
-    background: url("logo_feio_Diesel.png") right 6% center / 480px auto no-repeat;
+    background:
+        linear-gradient(135deg, transparent 0 44%, rgba(237, 45, 45, 0.16) 44% 44.6%, transparent 44.6%),
+        repeating-linear-gradient(90deg, transparent 0 82px, rgba(255, 255, 255, 0.04) 82px 83px);
     content: "";
-    opacity: 0.06;
+    opacity: 0.26;
     transform: translateY(var(--hero-shift, 0));
+    pointer-events: none;
 }
 
 .hero-grid {
@@ -410,18 +384,54 @@ button {
     box-shadow: var(--shadow);
 }
 
-.cockpit-logo {
-    display: grid;
+.cockpit-photo {
+    position: relative;
     min-height: 280px;
-    place-items: center;
     overflow: hidden;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     background: #000;
 }
 
-.cockpit-logo img {
-    width: min(360px, 84%);
+.cockpit-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+    filter: saturate(1.08) contrast(1.05);
+}
+
+.cockpit-photo::after {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, transparent 34%, rgba(0, 0, 0, 0.78)),
+        linear-gradient(90deg, rgba(237, 45, 45, 0.16), transparent 45%);
+    content: "";
+}
+
+.cockpit-photo div {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    z-index: 1;
+    display: grid;
+    gap: 3px;
+}
+
+.cockpit-photo span,
+.photo-card span {
+    color: var(--amber);
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.cockpit-photo strong {
+    font-size: 1.2rem;
+    line-height: 1.08;
+    text-transform: uppercase;
 }
 
 .cockpit-status {
@@ -558,6 +568,7 @@ button {
 }
 
 .section-heading,
+.photo-grid,
 .line-layout,
 .triage-grid,
 .service-layout,
@@ -577,6 +588,69 @@ button {
 .section-heading h2 {
     max-width: 820px;
     font-size: 3.15rem;
+}
+
+.section-gallery {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(12, 14, 16, 0.72));
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.photo-card {
+    position: relative;
+    min-height: 310px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #000;
+    box-shadow: var(--shadow);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+    filter: saturate(1.06) contrast(1.04);
+    transition: transform 0.32s ease;
+}
+
+.photo-card::after {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, transparent 38%, rgba(0, 0, 0, 0.84)),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent);
+    content: "";
+}
+
+.photo-card div {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    z-index: 1;
+    display: grid;
+    gap: 5px;
+}
+
+.photo-card h3 {
+    font-size: 1.25rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.photo-card-wide {
+    grid-column: span 2;
+}
+
+.photo-card:hover img,
+.photo-card:focus-within img {
+    transform: scale(1.04);
 }
 
 .section-lines,
@@ -633,50 +707,21 @@ button {
     font-size: 2.45rem;
 }
 
-.engine-visual {
-    position: relative;
-    width: 180px;
-    aspect-ratio: 1;
+.line-photo {
+    width: 230px;
+    min-height: 170px;
     justify-self: center;
+    overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    background:
-        conic-gradient(from 220deg, var(--brand), var(--amber), rgba(255, 255, 255, 0.08), var(--brand)),
-        #090a0b;
+    border-radius: var(--radius);
+    background: #000;
 }
 
-.engine-visual span {
-    position: absolute;
-    display: block;
-    border-radius: 999px;
-    background: #0e1012;
-}
-
-.engine-visual span:nth-child(1) {
-    inset: 30px;
-    border: 1px solid var(--line);
-}
-
-.engine-visual span:nth-child(2) {
-    top: 50%;
-    left: 20px;
-    width: 140px;
-    height: 14px;
-    transform: translateY(-50%);
-}
-
-.engine-visual span:nth-child(3) {
-    top: 20px;
-    left: 50%;
-    width: 14px;
-    height: 140px;
-    transform: translateX(-50%);
-}
-
-.engine-visual span:nth-child(4) {
-    inset: 72px;
-    background: var(--brand);
-    box-shadow: 0 0 0 10px rgba(237, 45, 45, 0.18);
+.line-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
 }
 
 .line-data {
@@ -1124,6 +1169,7 @@ textarea:focus {
     }
 
     .signal-grid,
+    .photo-grid,
     .line-layout,
     .service-layout,
     .parts-layout,
@@ -1135,8 +1181,13 @@ textarea:focus {
         grid-template-columns: 1fr;
     }
 
-    .engine-visual {
-        width: 150px;
+    .photo-card-wide {
+        grid-column: auto;
+    }
+
+    .line-photo {
+        width: 100%;
+        min-height: 220px;
     }
 }
 
@@ -1149,14 +1200,8 @@ textarea:focus {
         padding: 64px 0;
     }
 
-    .brand-mark {
-        width: 54px;
-        height: 54px;
-    }
-
-    .brand-type span,
-    .brand-type strong {
-        font-size: 1.18rem;
+    .brand-logo {
+        width: 158px;
     }
 
     .hero h1 {
@@ -1201,7 +1246,7 @@ textarea:focus {
         font-size: 1.85rem;
     }
 
-    .cockpit-logo {
+    .cockpit-photo {
         min-height: 230px;
     }
 }
@@ -1219,8 +1264,8 @@ textarea:focus {
         gap: 9px;
     }
 
-    .brand-type {
-        display: none;
+    .brand-logo {
+        width: 138px;
     }
 
     .whatsapp-float {
@@ -1247,4 +1292,3 @@ textarea:focus {
         transform: none;
     }
 }
-
